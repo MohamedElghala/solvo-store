@@ -159,15 +159,28 @@ function handleContactSubmit(e) {
         btn.disabled = true;
     }
     
-    setTimeout(() => {
-        const form = e.target;
-        const box = form.parentElement;
-        box.innerHTML = '<div style="text-align:center;padding:2rem;">' +
-            '<i class="fa-solid fa-circle-check" style="font-size:2.5rem;color:#22C55E;margin-bottom:1rem;display:block;"></i>' +
-            '<h3 style="margin-bottom:0.5rem;color:#fff;">Message Sent Successfully!</h3>' +
-            '<p style="color:#94A3B8;">Our support team will respond to your email within 24 hours.</p>' +
-            '</div>';
-    }, 1000);
+// 8. Catalog Filtering
+function filterCatalog(category, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => {
+        t.style.background = '#101216';
+        t.style.color = '#94A3B8';
+        t.style.border = '1px solid rgba(255,255,255,0.1)';
+        t.classList.remove('active');
+    });
+    if (btn) {
+        btn.style.background = '#DC2626';
+        btn.style.color = '#fff';
+        btn.style.border = 'none';
+        btn.classList.add('active');
+    }
+    const cards = document.querySelectorAll('#catalog-grid .product-card');
+    cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-cat') === category) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
 }
 
 // Initialize on DOM ready

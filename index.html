@@ -682,69 +682,235 @@
                 <h2 class="section-title" style="font-size:2.2rem;font-weight:800;margin:0.5rem 0;">Upgrade Your Drive</h2>
             </div>
 
-            <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:1.5rem;">
+            <!-- Category Filter Tabs -->
+            <div style="display:flex;justify-content:center;gap:0.75rem;margin-bottom:2.5rem;flex-wrap:wrap;">
+                <button class="filter-tab active" onclick="filterCatalog('all', this)" style="background:#DC2626;color:#fff;border:none;padding:0.5rem 1.25rem;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;font-weight:700;cursor:pointer;">ALL (10)</button>
+                <button class="filter-tab" onclick="filterCatalog('cockpit', this)" style="background:#101216;color:#94A3B8;border:1px solid rgba(255,255,255,0.1);padding:0.5rem 1.25rem;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;">COCKPIT TECH</button>
+                <button class="filter-tab" onclick="filterCatalog('org', this)" style="background:#101216;color:#94A3B8;border:1px solid rgba(255,255,255,0.1);padding:0.5rem 1.25rem;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;">CABIN & CARGO</button>
+                <button class="filter-tab" onclick="filterCatalog('care', this)" style="background:#101216;color:#94A3B8;border:1px solid rgba(255,255,255,0.1);padding:0.5rem 1.25rem;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;">DETAIL & COATING</button>
+                <button class="filter-tab" onclick="filterCatalog('emergency', this)" style="background:#101216;color:#94A3B8;border:1px solid rgba(255,255,255,0.1);padding:0.5rem 1.25rem;border-radius:20px;font-family:'JetBrains Mono',monospace;font-size:0.8rem;cursor:pointer;">HIGHWAY EMERGENCY</button>
+            </div>
+
+            <div id="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:1.75rem;">
                 <!-- Product 1 -->
-                <div class="product-card">
+                <div class="product-card" data-cat="org">
                     <div class="product-card__media">
                         <img src="assets/img/seatgap_hero.jpg" alt="SOLVO SeatGap Organizer Pro">
                         <div class="product-card__badges">
                             <span class="badge badge--sale">-46%</span>
-                            <span class="badge badge--bestseller">HOT</span>
+                            <span class="badge badge--bestseller">VIRAL #1</span>
                         </div>
                     </div>
-                    <div style="padding:1.25rem 0.5rem;">
-                        <h4 style="font-size:1rem;margin-bottom:0.4rem;color:#fff;">SOLVO SeatGap Organizer™</h4>
-                        <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (1,247)</div>
-                        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem;color:#fff;">$24.00 <del style="color:#64748B;font-size:0.85rem;">$45.00</del></div>
-                        <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:1rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Cabin Organization</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">SOLVO SeatGap Organizer™</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Ends the seat-gap black hole with built-in retractable USB-C & Lightning fast-charging.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (1,247)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$24.00 <del style="color:#64748B;font-size:0.85rem;">$45.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">SELECT PACKAGE</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card">
+                <div class="product-card" data-cat="cockpit">
                     <div class="product-card__media">
                         <img src="assets/img/dash_cam.jpg" alt="4K Stealth AI Dash Cam">
                         <div class="product-card__badges">
-                            <span class="badge badge--new">NEW</span>
+                            <span class="badge badge--new">4K SONY</span>
+                            <span class="badge badge--sale">-25%</span>
                         </div>
                     </div>
-                    <div style="padding:1.25rem 0.5rem;">
-                        <h4 style="font-size:1rem;margin-bottom:0.4rem;color:#fff;">4K Stealth AI Dash Cam</h4>
-                        <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (482)</div>
-                        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem;color:#fff;">$119.00 <del style="color:#64748B;font-size:0.85rem;">$160.00</del></div>
-                        <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:1rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Safety & Security</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">4K Stealth AI Dash Cam</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Sony Starvis 2 night-vision optics, 24/7 G-Sensor parking guard & zero battery drain.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (482)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$119.00 <del style="color:#64748B;font-size:0.85rem;">$160.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card">
+                <div class="product-card" data-cat="cockpit">
                     <div class="product-card__media">
-                        <img src="assets/img/smart_car_charger.jpg" alt="Smart Car Charger">
+                        <img src="assets/img/smart_car_charger.jpg" alt="Wireless CarPlay & Android Auto 2-in-1 Adapter">
                         <div class="product-card__badges">
-                            <span class="badge badge--sale">-30%</span>
+                            <span class="badge badge--bestseller">PLUG & PLAY</span>
                         </div>
                     </div>
-                    <div style="padding:1.25rem 0.5rem;">
-                        <h4 style="font-size:1rem;margin-bottom:0.4rem;color:#fff;">Smart Fast Charger</h4>
-                        <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (629)</div>
-                        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem;color:#fff;">$29.00 <del style="color:#64748B;font-size:0.85rem;">$42.00</del></div>
-                        <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:1rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Wireless Tech</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">Wireless CarPlay 2-in-1 Adapter</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Converts wired CarPlay & Android Auto to instant wireless. 5.8GHz zero latency chip.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (891)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$39.00 <del style="color:#64748B;font-size:0.85rem;">$65.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card">
+                <div class="product-card" data-cat="care">
                     <div class="product-card__media">
-                        <img src="assets/img/car_care_kit.jpg" alt="Pro Ceramic Care Kit">
+                        <img src="assets/img/solvo_hero_car.jpg" alt="Cordless 120W Turbo Vacuum and Air Duster">
                         <div class="product-card__badges">
-                            <span class="badge badge--bestseller">PRO</span>
+                            <span class="badge badge--sale">-38%</span>
                         </div>
                     </div>
-                    <div style="padding:1.25rem 0.5rem;">
-                        <h4 style="font-size:1rem;margin-bottom:0.4rem;color:#fff;">Pro Ceramic Shield Kit</h4>
-                        <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (310)</div>
-                        <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.1rem;color:#fff;">$45.00 <del style="color:#64748B;font-size:0.85rem;">$65.00</del></div>
-                        <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:1rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Cabin Clean</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">120W Turbo Air Duster & Vacuum</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Brushless high-velocity motor blasts dust out of AC vents and vacuums deep seat seams.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (514)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$34.00 <del style="color:#64748B;font-size:0.85rem;">$55.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" data-cat="cockpit">
+                    <div class="product-card__media">
+                        <img src="assets/img/solvo-hero-2.jpg" alt="MagSafe 15W Cryo-Cooling Car Mount">
+                        <div class="product-card__badges">
+                            <span class="badge badge--new">CRYO COOL</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Cockpit Mount</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">MagSafe 15W Cryo-Cooling Mount</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Active semiconductor cooling fan prevents phone overheating during GPS navigation.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (672)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$28.00 <del style="color:#64748B;font-size:0.85rem;">$48.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" data-cat="care">
+                    <div class="product-card__media">
+                        <img src="assets/img/car_care_kit.jpg" alt="9H Nano-Diamond Ceramic Coating">
+                        <div class="product-card__badges">
+                            <span class="badge badge--bestseller">9H SHIELD</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Paint Protection</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">9H Nano-Diamond Ceramic Suite</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Professional hydrophobic mirror gloss. Shields against UV oxidation, road salt, and swirl marks.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (389)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$45.00 <del style="color:#64748B;font-size:0.85rem;">$75.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" data-cat="emergency">
+                    <div class="product-card__media">
+                        <img src="assets/img/solvo-hero-3.jpg" alt="150 PSI Digital Smart Tire Inflator">
+                        <div class="product-card__badges">
+                            <span class="badge badge--new">AUTO-STOP</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Highway Safety</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">150 PSI Digital Smart Inflator</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Fast cordless inflation with real-time digital pressure readout and automatic pressure cutoff.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (442)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$42.00 <del style="color:#64748B;font-size:0.85rem;">$68.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" data-cat="cockpit">
+                    <div class="product-card__media">
+                        <img src="assets/img/solvo-hero-4.jpg" alt="Polarized Anti-Glare HD Night Visor">
+                        <div class="product-card__badges">
+                            <span class="badge badge--sale">-42%</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Vision Clarity</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">Polarized Anti-Glare Night Visor</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Eliminates blinding high-beam LED glare from oncoming traffic and winter sun reflection.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (298)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$22.00 <del style="color:#64748B;font-size:0.85rem;">$38.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card" data-cat="org">
+                    <div class="product-card__media">
+                        <img src="assets/img/trunk_organizer.jpg" alt="Aerospace Carbon Cargo Vault Trunk Organizer">
+                        <div class="product-card__badges">
+                            <span class="badge badge--bestseller">1680D NYLON</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Cargo Control</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">Aerospace Carbon Cargo Vault</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Non-slip rubber base with modular dividers stops groceries and tools sliding during sharp turns.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (743)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$49.00 <del style="color:#64748B;font-size:0.85rem;">$85.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card" data-cat="care">
+                    <div class="product-card__media">
+                        <img src="assets/img/solvo_luxury_hero_banner.jpg" alt="Ultrasonic Active Ion Cabin Air Purifier">
+                        <div class="product-card__badges">
+                            <span class="badge badge--new">IONIC TECH</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Interior Aircare</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">Ultrasonic Active Ion Purifier</h4>
+                            <p style="font-size:0.8rem;color:#94A3B8;line-height:1.5;margin-bottom:0.6rem;">Releases 10 million negative ions to eliminate pet, tobacco, and fast-food odors at molecular level.</p>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (321)</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$29.00 <del style="color:#64748B;font-size:0.85rem;">$49.00</del></div>
+                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                        </div>
                     </div>
                 </div>
             </div>
