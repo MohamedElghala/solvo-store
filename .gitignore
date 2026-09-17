@@ -1,0 +1,5 @@
+# Security & Credentials
+aliexpress_credentials.json
+.env
+.env*.local
+*.log
