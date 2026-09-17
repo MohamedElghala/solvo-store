@@ -1,0 +1,50 @@
+name: SOLVO Autonomous Content Engine
+
+on:
+  schedule:
+    # Runs daily at 14:00 UTC (10:00 AM EST - Peak engagement time in US)
+    - cron: '0 14 * * *'
+  workflow_dispatch: # Allows manual trigger at any time from GitHub UI
+
+jobs:
+  produce-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install System Dependencies (FFmpeg)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Install Python Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r automation/requirements.txt
+
+      - name: Execute SOLVO Autonomous Video Generation & Publishing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VEO_API_KEY: ${{ secrets.VEO_API_KEY }}
+          YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          TIKTOK_ACCESS_TOKEN: ${{ secrets.TIKTOK_ACCESS_TOKEN }}
+        run: |
+          python automation/content_engine.py
+
+      - name: Archive Generated Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: solvo-daily-video
+          path: automation/output/
+          retention-days: 7
