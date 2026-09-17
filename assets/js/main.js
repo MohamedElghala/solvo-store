@@ -246,7 +246,7 @@ const productsData = {
         savePercent: '40%',
         rating: 4.8,
         reviews: '891',
-        image: 'assets/img/smart_car_charger.jpg',
+        image: 'assets/img/charging_dock.jpg',
         description: 'Converts factory wired Apple CarPlay and Android Auto into high-speed wireless connectivity in seconds. Powered by an automotive-grade 5.8GHz dual-core chipset for imperceptible audio delay and flawless GPS navigation.',
         bullets: [
             'Instant 5.8GHz WiFi & Bluetooth 5.3 auto-connect upon vehicle start',
@@ -265,7 +265,7 @@ const productsData = {
         savePercent: '38%',
         rating: 4.7,
         reviews: '514',
-        image: 'assets/img/solvo_hero_car.jpg',
+        image: 'assets/img/car_vacuum.jpg',
         description: 'Dual-action high-velocity brushless motor that switches between a 120,000 RPM hurricane air duster and a 16,000 Pa suction vacuum. Cleans deep into AC vents, cupholders, seat seams, and trunk liners with clinical precision.',
         bullets: [
             '120,000 RPM high-speed turbine motor delivers 16,000 Pa suction',
@@ -284,7 +284,7 @@ const productsData = {
         savePercent: '42%',
         rating: 4.8,
         reviews: '672',
-        image: 'assets/img/solvo-hero-2.jpg',
+        image: 'assets/img/cryo_mount.jpg',
         description: 'Advanced magnetic phone mount equipped with active Peltier semiconductor refrigeration and ultra-silent cooling fan. Keeps your iPhone or Android at icy temperatures while fast charging at 15W during heavy GPS and sun exposure.',
         bullets: [
             'Peltier semiconductor cooling prevents summer thermal battery drain',
@@ -303,7 +303,7 @@ const productsData = {
         savePercent: '40%',
         rating: 4.9,
         reviews: '389',
-        image: 'assets/img/car_care_kit.jpg',
+        image: 'assets/img/ceramic_coating.jpg',
         description: 'Professional grade 9H liquid crystal nano-ceramic coating engineered for deep mirror gloss and impenetrable hydrophobic protection. Seals clear coat against acid rain, UV oxidation, brake dust, and light micro-scratches for up to 12 months.',
         bullets: [
             'Genuine 9H diamond hardness surface protection',
@@ -322,7 +322,7 @@ const productsData = {
         savePercent: '38%',
         rating: 4.9,
         reviews: '442',
-        image: 'assets/img/solvo-hero-3.jpg',
+        image: 'assets/img/emergency_inflator.jpg',
         description: 'Compact cordless heavy-duty air compressor that fills a standard car tire from 28 to 35 PSI in just 60 seconds. Features a precision digital LCD gauge, 4 preset vehicle modes, automatic pressure shutoff, and emergency SOS strobe lighting.',
         bullets: [
             '150 PSI maximum pressure with heavy-duty metal cylinder block',
@@ -332,23 +332,23 @@ const productsData = {
             'USB output function doubles as an emergency power bank for phones'
         ]
     },
-    'visor': {
-        id: 'visor',
-        name: 'Polarized Anti-Glare HD Night Visor',
-        category: 'Vision Clarity & Safety',
+    'console-tray': {
+        id: 'console-tray',
+        name: 'Precision Center Console Vault',
+        category: 'Cabin Organization',
         price: 22.00,
         oldPrice: 38.00,
         savePercent: '42%',
-        rating: 4.7,
-        reviews: '298',
-        image: 'assets/img/solvo-hero-4.jpg',
-        description: 'Optical-grade 2-in-1 day and night polarized visor shield. Filters out 99.9% of blinding high-beam LED glare, xenon reflections, and low-angle winter sunlight without reducing road clarity or sign legibility.',
+        rating: 4.8,
+        reviews: '618',
+        image: 'assets/img/console_tray.jpg',
+        description: 'Double-tier precision-molded console organizer that eliminates armrest clutter. Features dedicated compartments for keys, cards, sunglasses, and coins with acoustic silicone noise-dampening liners.',
         bullets: [
-            'High-definition polarized optical lens eliminates night LED glare',
-            'Dual-flip design: yellow night contrast lens + tinted sun lens',
-            'Universal clip securely fits over any factory sun visor',
-            'Reduces eye strain, fatigue, and headache during night highway drives',
-            'Scratch-resistant shatterproof optical polycarbonate'
+            'Precision laser OEM measurement fits center console flawlessly',
+            'Non-slip textured silicone liners stop rattling on bumpy roads',
+            'Dual-tier smart layout doubles usable armrest storage volume',
+            'Integrated coin organizer and quick-grab sunglasses cradle',
+            'High-temperature ABS construction withstands extreme cabin heat'
         ]
     },
     'trunk-vault': {
@@ -370,23 +370,23 @@ const productsData = {
             'Collapses down to 2 inches flat for effortless under-floor storage'
         ]
     },
-    'purifier': {
-        id: 'purifier',
-        name: 'Ultrasonic Active Ion Cabin Air Purifier',
-        category: 'Interior Aircare',
+    'detailing-kit': {
+        id: 'detailing-kit',
+        name: 'Pro Interior Detailing & Restoration Suite',
+        category: 'Cabin Detailing',
         price: 29.00,
         oldPrice: 49.00,
         savePercent: '41%',
-        rating: 4.7,
-        reviews: '321',
-        image: 'assets/img/solvo_luxury_hero_banner.jpg',
-        description: 'Anodized aluminum cupholder ionizer releasing 10 million negative ions per second. Neutralizes airborne bacteria, allergens, PM2.5 smog, and stubborn cigarette or food odors at the molecular level with silent whisper operation.',
+        rating: 4.8,
+        reviews: '452',
+        image: 'assets/img/car_care_kit.jpg',
+        description: 'Professional grade interior detailing suite featuring ultra-soft boar hair vent brushes, 1200 GSM micro-suede polishing cloths, and anti-static leather conditioning balm. Restores OEM matte finish without greasy residue.',
         bullets: [
-            '10,000,000 negative ions/sec for active molecular odor elimination',
-            'Silent whisper turbine (<24dB) — runs unnoticed in cupholder',
-            'Anodized CNC aluminum alloy enclosure matches luxury cabins',
-            'Aroma diffusion chamber with replaceable botanical essential rings',
-            'Smart USB auto-power syncs with engine ignition'
+            'Scratch-free natural boar hair brushes for delicate AC vents and screens',
+            '1200 GSM edgeless microfiber buffing and restoration towels',
+            'pH-neutral safe formula for Nappa leather, Alcantara, and carbon trim',
+            'Anti-static barrier repels cabin dust and pet hair for up to 60 days',
+            'Includes heavy-duty zip travel case for trunk storage'
         ]
     }
 };
