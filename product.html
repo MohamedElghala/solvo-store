@@ -1,0 +1,507 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title id="page-title">SOLVO — Precision Automotive Luxury</title>
+    <meta name="description" id="page-desc" content="Discover bespoke automotive accessories engineered for high-performance vehicles.">
+    <link rel="canonical" href="https://solvo.store/product.html">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="product">
+    <meta property="og:site_name" content="SOLVO">
+    <meta property="og:title" id="og-title" content="SOLVO Precision Engineering">
+    <meta property="og:description" id="og-desc" content="Discover advanced solutions designed to elevate your luxury driving experience.">
+    <meta property="og:image" id="og-img" content="https://solvo.store/assets/img/seatgap_hero.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         ANNOUNCEMENT BAR
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="announcement-bar">
+        <span><i class="fa-solid fa-plane-up"></i> Free Express Global Shipping over $35 &bull; 30-Day Money-Back Guarantee &bull; 2-Year Warranty</span>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FLAGSHIP HEADER WITH BRUSHED CHROME LOGO
+    ════════════════════════════════════════════════════════════════ -->
+    <header class="solvo-header">
+        <div class="store-container header-inner">
+            <a href="index.html" class="brand-logo" aria-label="SOLVO Home">
+                <svg viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg" style="height:32px;width:auto;">
+                    <defs>
+                        <linearGradient id="chrome-grad-pdp" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#8A8D91"/>
+                            <stop offset="30%" stop-color="#C7C9CC"/>
+                            <stop offset="50%" stop-color="#FFFFFF"/>
+                            <stop offset="70%" stop-color="#C7C9CC"/>
+                            <stop offset="100%" stop-color="#8A8D91"/>
+                        </linearGradient>
+                    </defs>
+                    <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="900" font-size="30" fill="url(#chrome-grad-pdp)" letter-spacing="6">
+                        S<tspan fill="#DC2626">O</tspan>LV<tspan fill="#DC2626">O</tspan>
+                    </text>
+                </svg>
+                <span class="logo-badge" style="margin-left:8px;">FLAGSHIP</span>
+            </a>
+            <nav class="header-nav">
+                <a href="index.html">Overview</a>
+                <a href="index.html#catalog-grid" style="color:#fff;">Products</a>
+                <a href="index.html#solvo-hotspots">3D Showroom</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Support</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#pdp-buy-btn" class="btn-header-buy">ORDER NOW</a>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html">Overview</a>
+            <a href="index.html#catalog-grid">Products Catalog</a>
+            <a href="index.html#solvo-hotspots">3D Showroom</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Support</a>
+            <a href="#pdp-buy-btn" class="btn-header-buy">ORDER NOW</a>
+        </div>
+    </header>
+
+    <main class="page-content pdp-section store-container">
+
+        <!-- Breadcrumbs -->
+        <nav class="pdp-breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html"><i class="fa-solid fa-house" style="font-size:0.75rem;"></i> Home</a>
+            <span>/</span>
+            <a href="index.html#catalog-grid">Catalog</a>
+            <span>/</span>
+            <span id="pdp-crumb-cat">Category</span>
+            <span>/</span>
+            <span class="active" id="pdp-crumb-title">Product Name</span>
+        </nav>
+
+        <!-- Main Product Grid: 2 Columns -->
+        <div class="pdp-grid">
+
+            <!-- Left: Interactive Gallery -->
+            <div class="pdp-gallery">
+                <div class="pdp-main-image-wrap">
+                    <span class="pdp-gallery-badge" id="pdp-badge-text">BESTSELLER</span>
+                    <img id="pdp-main-img" src="assets/img/seatgap_hero.jpg" alt="SOLVO Product">
+                </div>
+                <div class="pdp-thumbs" id="pdp-thumbs-strip">
+                    <!-- Thumbnails generated dynamically by JS -->
+                </div>
+            </div>
+
+            <!-- Right: Product Information & Purchase -->
+            <div class="pdp-info">
+                <span class="pdp-series-tag" id="pdp-category-tag">CABIN ORGANIZATION</span>
+                <h1 class="pdp-title" id="pdp-product-title">SOLVO SeatGap Organizer™</h1>
+
+                <!-- Rating & Social Proof Strip -->
+                <div class="pdp-rating-strip">
+                    <div class="pdp-rating-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="pdp-rating-count" id="pdp-rating-text">4.8 (1,247 reviews)</span>
+                    <span class="pdp-rating-verified"><i class="fa-solid fa-circle-check"></i> 99% Verified Fitment</span>
+                </div>
+
+                <!-- Price & Urgency Box -->
+                <div class="pdp-price-box">
+                    <div class="pdp-price-values">
+                        <span class="pdp-price-current" id="pdp-price-current">$24.00</span>
+                        <span class="pdp-price-old" id="pdp-price-old">$45.00</span>
+                        <span class="pdp-save-pill" id="pdp-save-pill">SAVE 46%</span>
+                    </div>
+                    <div class="pdp-stock-urgency">
+                        <div class="pdp-stock-dot"></div>
+                        <span id="pdp-stock-text">Only 14 units left in stock</span>
+                    </div>
+                </div>
+
+                <!-- Short Problem-Solving Pitch -->
+                <p class="pdp-short-desc" id="pdp-short-desc">
+                    Ends the seat-gap black hole once and for all. Engineered with aerospace dry carbon fiber and supple Nappa leather trim.
+                </p>
+
+                <!-- Key Highlights Checklist -->
+                <ul class="pdp-highlights" id="pdp-highlights">
+                    <!-- Populated dynamically -->
+                </ul>
+
+                <!-- Guaranteed Fitment Widget -->
+                <div class="pdp-fitment-widget">
+                    <i class="fa-solid fa-car-side pdp-fitment-icon"></i>
+                    <div class="pdp-fitment-text">
+                        <strong>100% Guaranteed Vehicle Fitment</strong>
+                        <span>Universal CAD-engineered fit. Compatible with 99% of modern sedans, SUVs, and coupes.</span>
+                    </div>
+                </div>
+
+                <!-- Quantity & Actions -->
+                <div class="pdp-actions-row">
+                    <div class="pdp-qty-wrap">
+                        <button class="pdp-qty-btn" onclick="adjustQty(-1)" aria-label="Decrease">&minus;</button>
+                        <span class="pdp-qty-val" id="pdp-qty-val">1</span>
+                        <button class="pdp-qty-btn" onclick="adjustQty(1)" aria-label="Increase">&plus;</button>
+                    </div>
+                    <button class="pdp-btn-add" onclick="handleAddToCart()">
+                        <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
+                    </button>
+                </div>
+
+                <!-- Primary Express Checkout Button -->
+                <button class="pdp-btn-buy-now" id="pdp-buy-btn" onclick="handlePdpOrder()">
+                    <i class="fa-brands fa-paypal"></i> EXPRESS CHECKOUT WITH PAYPAL / CARD
+                </button>
+
+                <!-- Trust Strip -->
+                <div class="pdp-trust-grid">
+                    <div class="pdp-trust-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Free Global Express Shipping ($35+)</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>30-Day Risk-Free Money Back</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <i class="fa-solid fa-award"></i>
+                        <span>2-Year Comprehensive Warranty</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>256-Bit SSL Encrypted Checkout</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Full-Width In-Depth Information Tabs -->
+        <div class="pdp-tabs-container">
+            <div class="pdp-tabs-header">
+                <button class="pdp-tab-trigger active" onclick="switchTab('overview', this)">DETAILED OVERVIEW</button>
+                <button class="pdp-tab-trigger" onclick="switchTab('specs', this)">TECHNICAL SPECIFICATIONS</button>
+                <button class="pdp-tab-trigger" onclick="switchTab('box', this)">WHAT'S IN THE BOX</button>
+                <button class="pdp-tab-trigger" onclick="switchTab('shipping', this)">SHIPPING & GUARANTEE</button>
+            </div>
+
+            <!-- Tab 1: Overview -->
+            <div class="pdp-tab-pane active" id="tab-overview">
+                <div id="pdp-overview-content"></div>
+            </div>
+
+            <!-- Tab 2: Specs -->
+            <div class="pdp-tab-pane" id="tab-specs">
+                <table class="pdp-table">
+                    <tbody id="pdp-specs-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Tab 3: What's In The Box -->
+            <div class="pdp-tab-pane" id="tab-box">
+                <div class="pdp-box-grid" id="pdp-box-grid"></div>
+            </div>
+
+            <!-- Tab 4: Shipping & Guarantee -->
+            <div class="pdp-tab-pane" id="tab-shipping">
+                <h3 style="color:#fff;font-size:1.3rem;margin-bottom:1rem;">Worldwide Express Shipping & 30-Day Coverage</h3>
+                <p style="color:#94A3B8;line-height:1.8;margin-bottom:1.5rem;">All SOLVO orders are dispatched within 24–48 hours from our international logistics hubs. Each shipment includes door-to-door online tracking and insured delivery.</p>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:1rem;margin-bottom:2rem;">
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:1rem;border-radius:8px;">
+                        <strong style="color:#fff;display:block;margin-bottom:0.35rem;">United States</strong>
+                        <span style="color:#94A3B8;font-size:0.88rem;">7–15 Business Days (USPS / DHL Express)</span>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:1rem;border-radius:8px;">
+                        <strong style="color:#fff;display:block;margin-bottom:0.35rem;">Canada & UK</strong>
+                        <span style="color:#94A3B8;font-size:0.88rem;">10–20 Business Days (Royal Mail / Canada Post)</span>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:1rem;border-radius:8px;">
+                        <strong style="color:#fff;display:block;margin-bottom:0.35rem;">European Union</strong>
+                        <span style="color:#94A3B8;font-size:0.88rem;">10–25 Business Days (Priority Tracked)</span>
+                    </div>
+                </div>
+                <h4 style="color:#fff;font-size:1.1rem;margin-bottom:0.5rem;">30-Day Zero-Risk Return Guarantee</h4>
+                <p style="color:#94A3B8;line-height:1.8;">If you are not 100% satisfied with the craftsmanship or fitment in your vehicle, contact our 24/7 concierge team at <strong>support@solvo.store</strong> within 30 days for a full, prompt refund.</p>
+            </div>
+        </div>
+
+        <!-- Verified Customer Reviews Section -->
+        <section class="pdp-reviews-section">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:1rem;">
+                <div>
+                    <span style="color:#DC2626;font-family:var(--f-mono);font-size:0.75rem;letter-spacing:2px;font-weight:700;">VERIFIED REVIEWS</span>
+                    <h2 style="font-size:1.8rem;color:#fff;font-weight:800;margin:0.25rem 0;">What Drivers Are Saying</h2>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                    <div style="color:#FBBF24;font-size:1.1rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <strong style="color:#fff;font-size:1.1rem;">4.8 / 5.0</strong>
+                </div>
+            </div>
+
+            <div class="pdp-reviews-grid" id="pdp-reviews-grid">
+                <!-- Injected dynamically -->
+            </div>
+        </section>
+
+        <!-- Related Products Recommendations -->
+        <section style="margin-top:5rem;">
+            <div style="text-align:center;margin-bottom:2.5rem;">
+                <span style="color:#DC2626;font-family:var(--f-mono);font-size:0.75rem;letter-spacing:2px;font-weight:700;">COMPLETE YOUR UPGRADE</span>
+                <h2 style="font-size:2rem;color:#fff;font-weight:800;margin:0.25rem 0;">Frequently Bought Together</h2>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:1.75rem;" id="pdp-related-grid">
+                <!-- Injected dynamically -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         FLAGSHIP FOOTER WITH CHROME LOGO
+    ════════════════════════════════════════════════════════════════ -->
+    <footer class="store-footer" role="contentinfo" style="background:#040507;border-top:1px solid rgba(255,255,255,0.08);padding:4rem 0 2rem;margin-top:6rem;">
+        <div class="store-container">
+            <div class="footer-grid" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem;">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo" aria-label="SOLVO Home">
+                        <svg viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg" style="height:30px;width:auto;">
+                            <defs>
+                                <linearGradient id="chrome-footer-pdp" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#8A8D91"/>
+                                    <stop offset="50%" stop-color="#FFFFFF"/>
+                                    <stop offset="100%" stop-color="#8A8D91"/>
+                                </linearGradient>
+                            </defs>
+                            <text x="0" y="28" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="url(#chrome-footer-pdp)" letter-spacing="6">
+                                S<tspan fill="#DC2626">O</tspan>LV<tspan fill="#DC2626">O</tspan>
+                            </text>
+                        </svg>
+                    </a>
+                    <p style="color:#94A3B8;font-size:0.875rem;line-height:1.7;margin-top:1rem;">Precision. Presence. SOLVO. Premium automotive accessories engineered for modern journeys.</p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title" style="color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:2px;margin-bottom:1.25rem;">COLLECTIONS</h4>
+                    <ul class="footer-links" style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;font-size:0.88rem;">
+                        <li><a href="product.html?id=seatgap" style="color:#94A3B8;text-decoration:none;">SeatGap Organizer™</a></li>
+                        <li><a href="product.html?id=dashcam" style="color:#94A3B8;text-decoration:none;">4K Stealth Dash Cam</a></li>
+                        <li><a href="product.html?id=vacuum" style="color:#94A3B8;text-decoration:none;">120W Turbo Vacuum</a></li>
+                        <li><a href="product.html?id=trunk-vault" style="color:#94A3B8;text-decoration:none;">Cargo Vault Trunk</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title" style="color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:2px;margin-bottom:1.25rem;">SUPPORT & POLICIES</h4>
+                    <ul class="footer-links" style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.75rem;font-size:0.88rem;">
+                        <li><a href="faq.html" style="color:#94A3B8;text-decoration:none;">FAQ</a></li>
+                        <li><a href="contact.html" style="color:#94A3B8;text-decoration:none;">Contact Support</a></li>
+                        <li><a href="shipping.html" style="color:#94A3B8;text-decoration:none;">Shipping Policy</a></li>
+                        <li><a href="returns.html" style="color:#94A3B8;text-decoration:none;">Returns & Refunds</a></li>
+                        <li><a href="privacy.html" style="color:#94A3B8;text-decoration:none;">Privacy Policy</a></li>
+                        <li><a href="terms.html" style="color:#94A3B8;text-decoration:none;">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title" style="color:#fff;font-family:'JetBrains Mono',monospace;font-size:0.8rem;letter-spacing:2px;margin-bottom:1.25rem;">SECURE SHOPPING</h4>
+                    <p style="color:#94A3B8;font-size:0.85rem;margin-bottom:1rem;line-height:1.6;">256-bit encrypted checkout via industry standard payment gateways.</p>
+                    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;font-size:1.3rem;color:#94A3B8;">
+                        <span style="background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-cc-visa"></i></span>
+                        <span style="background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-cc-mastercard"></i></span>
+                        <span style="background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-cc-paypal"></i></span>
+                        <span style="background:rgba(255,255,255,0.06);padding:6px 12px;border-radius:4px;border:1px solid rgba(255,255,255,0.1);"><i class="fa-brands fa-cc-apple-pay"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom" style="display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08);color:#64748B;font-size:0.85rem;flex-wrap:wrap;gap:1rem;">
+                <span>&copy; 2026 SOLVO Inc. All rights reserved.</span>
+                <span style="display:flex;gap:1.5rem;">
+                    <a href="privacy.html" style="color:#94A3B8;text-decoration:none;">Privacy</a>
+                    <a href="terms.html" style="color:#94A3B8;text-decoration:none;">Terms</a>
+                    <a href="shipping.html" style="color:#94A3B8;text-decoration:none;">Shipping</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/product-data.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        let currentProduct = null;
+        let selectedQty = 1;
+
+        function initPDP() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const prodId = urlParams.get('id') || 'seatgap';
+            currentProduct = solvoProductsMaster[prodId] || solvoProductsMaster['seatgap'];
+
+            // Title & Meta
+            document.title = currentProduct.name + ' — SOLVO';
+            document.getElementById('pdp-crumb-cat').textContent = currentProduct.breadcrumbCat;
+            document.getElementById('pdp-crumb-title').textContent = currentProduct.shortName;
+
+            // Gallery
+            const mainImg = document.getElementById('pdp-main-img');
+            mainImg.src = currentProduct.images[0];
+            mainImg.alt = currentProduct.name;
+            document.getElementById('pdp-badge-text').textContent = currentProduct.badgeText;
+
+            const thumbsContainer = document.getElementById('pdp-thumbs-strip');
+            thumbsContainer.innerHTML = '';
+            currentProduct.images.forEach((imgSrc, idx) => {
+                const thumbBtn = document.createElement('button');
+                thumbBtn.className = 'pdp-thumb' + (idx === 0 ? ' active' : '');
+                thumbBtn.innerHTML = `<img src="${imgSrc}" alt="${currentProduct.name} thumbnail ${idx + 1}">`;
+                thumbBtn.onclick = () => {
+                    document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+                    thumbBtn.classList.add('active');
+                    mainImg.src = imgSrc;
+                };
+                thumbsContainer.appendChild(thumbBtn);
+            });
+
+            // Product Information
+            document.getElementById('pdp-category-tag').textContent = currentProduct.category;
+            document.getElementById('pdp-product-title').textContent = currentProduct.name;
+            document.getElementById('pdp-rating-text').textContent = `${currentProduct.rating} (${currentProduct.reviewsCount.toLocaleString()} reviews)`;
+            document.getElementById('pdp-price-current').textContent = '$' + currentProduct.price.toFixed(2);
+            document.getElementById('pdp-price-old').textContent = '$' + currentProduct.oldPrice.toFixed(2);
+            document.getElementById('pdp-save-pill').textContent = 'SAVE ' + currentProduct.savePercent;
+            document.getElementById('pdp-stock-text').textContent = `Only ${currentProduct.stockLeft} units left in stock`;
+            document.getElementById('pdp-short-desc').textContent = currentProduct.shortDesc;
+
+            // Highlights
+            const hlUl = document.getElementById('pdp-highlights');
+            hlUl.innerHTML = '';
+            currentProduct.highlights.forEach(hl => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="fa-solid fa-circle-check"></i> <span>${hl}</span>`;
+                hlUl.appendChild(li);
+            });
+
+            // Tab 1: Overview
+            document.getElementById('pdp-overview-content').innerHTML = currentProduct.overviewHTML;
+
+            // Tab 2: Specs Table
+            const specsTbody = document.getElementById('pdp-specs-tbody');
+            specsTbody.innerHTML = '';
+            currentProduct.specs.forEach(s => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${s.key}</td><td>${s.val}</td>`;
+                specsTbody.appendChild(tr);
+            });
+
+            // Tab 3: Box Items
+            const boxGrid = document.getElementById('pdp-box-grid');
+            boxGrid.innerHTML = '';
+            currentProduct.inTheBox.forEach(item => {
+                const boxDiv = document.createElement('div');
+                boxDiv.className = 'pdp-box-item';
+                boxDiv.innerHTML = `<i class="fa-solid fa-box"></i><span>${item}</span>`;
+                boxGrid.appendChild(boxDiv);
+            });
+
+            // Reviews Grid
+            const revGrid = document.getElementById('pdp-reviews-grid');
+            revGrid.innerHTML = '';
+            currentProduct.reviews.forEach(r => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p style="color:#CBD5E1;font-size:0.92rem;line-height:1.6;margin:0.75rem 0;">"${r.comment}"</p>
+                    <div class="review-author" style="margin-top:1rem;">
+                        <strong>${r.author}</strong> <span class="review-badge"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                        <div class="review-vehicle">${r.vehicle} &bull; ${r.date}</div>
+                    </div>
+                `;
+                revGrid.appendChild(card);
+            });
+
+            // Related Products
+            const relGrid = document.getElementById('pdp-related-grid');
+            relGrid.innerHTML = '';
+            const allKeys = Object.keys(solvoProductsMaster).filter(k => k !== prodId);
+            const relatedKeys = allKeys.slice(0, 4);
+            relatedKeys.forEach(k => {
+                const rp = solvoProductsMaster[k];
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.onclick = () => { window.location.href = `product.html?id=${rp.id}`; };
+                card.innerHTML = `
+                    <div class="product-card__media">
+                        <img src="${rp.images[0]}" alt="${rp.name}">
+                        <div class="product-card__badges">
+                            <span class="badge badge--sale">-${rp.savePercent}</span>
+                        </div>
+                    </div>
+                    <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
+                        <div>
+                            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#DC2626;font-weight:700;letter-spacing:1px;text-transform:uppercase;">${rp.category}</span>
+                            <h4 style="font-size:1rem;margin:0.25rem 0 0.4rem;color:#fff;">${rp.shortName}</h4>
+                            <div style="color:#FBBF24;font-size:0.8rem;margin-bottom:0.5rem;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> (${rp.reviewsCount})</div>
+                        </div>
+                        <div>
+                            <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$${rp.price.toFixed(2)} <del style="color:#64748B;font-size:0.85rem;">$${rp.oldPrice.toFixed(2)}</del></div>
+                            <a href="product.html?id=${rp.id}" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;text-decoration:none;">VIEW PRODUCT</a>
+                        </div>
+                    </div>
+                `;
+                relGrid.appendChild(card);
+            });
+        }
+
+        function adjustQty(delta) {
+            selectedQty = Math.max(1, Math.min(10, selectedQty + delta));
+            document.getElementById('pdp-qty-val').textContent = selectedQty;
+        }
+
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.pdp-tab-trigger').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.pdp-tab-pane').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            const pane = document.getElementById('tab-' + tabId);
+            if (pane) pane.classList.add('active');
+        }
+
+        function handleAddToCart() {
+            if (!currentProduct) return;
+            const total = (currentProduct.price * selectedQty).toFixed(2);
+            alert(`🎉 ADDED TO CART!\n\nProduct: ${currentProduct.name}\nQuantity: ${selectedQty}\nTotal: $${total} USD\n\nFast Worldwide Express Shipping ($35+) & 30-Day Money Back Guarantee included.`);
+        }
+
+        function handlePdpOrder() {
+            if (!currentProduct) return;
+            const btn = document.getElementById('pdp-buy-btn');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Connecting to Secure Gateway...';
+            btn.style.opacity = '0.85';
+            setTimeout(() => {
+                const total = (currentProduct.price * selectedQty).toFixed(2);
+                alert(`🎉 ORDER INITIATION SUCCESSFUL!\n\nPackage: ${currentProduct.name} (x${selectedQty})\nTotal: $${total} USD\n\n(When your PayPal / Stripe Gateway is connected, the secure payment popup completes checkout here!)`);
+                btn.innerHTML = '<i class="fa-brands fa-paypal"></i> EXPRESS CHECKOUT WITH PAYPAL / CARD';
+                btn.style.opacity = '1';
+            }, 1200);
+        }
+
+        document.addEventListener('DOMContentLoaded', initPDP);
+    </script>
+</body>
+</html>
