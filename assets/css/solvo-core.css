@@ -1,0 +1,2079 @@
+/*
+Theme Name: Solvo Premium Theme
+Version: 8.0.0
+Template: twentytwentyfour
+Description: SOLVO — Drive Better. Live Smarter. Premium Automotive Accessories.
+*/
+
+/* ══════════════════════════════════════════════════════════════
+   GLOBAL RESET & TYPOGRAPHY
+   ══════════════════════════════════════════════════════════════ */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* ─── SOLVO Racing Palette (from Logo) ─── */
+  --c-obsidian:    #0A0A0A;
+  --c-charcoal:    #141416;
+  --c-gunmetal:    #1C1C1E;
+
+  /* Chrome / Metallic Silver */
+  --c-chrome-hi:   #F2F2F2;
+  --c-chrome-mid:  #C7C9CC;
+  --c-chrome-lo:   #8A8D91;
+  --c-chrome-grad: linear-gradient(135deg, #8A8D91, #C7C9CC, #F2F2F2, #C7C9CC, #8A8D91);
+
+  /* Racing Red Accent */
+  --c-red:         #C41E3A;
+  --c-red-dark:    #8F1424;
+  --c-red-bright:  #D62839;
+  --c-red-dim:     rgba(196, 30, 58, 0.15);
+  --c-red-glow:    rgba(196, 30, 58, 0.35);
+
+  /* Neutrals */
+  --c-white:       #F5F5F5;
+  --c-muted:       #9A9A9C;
+  --c-border:      rgba(255, 255, 255, 0.08);
+  --c-border-h:    rgba(199, 201, 204, 0.3);
+
+  /* Typography */
+  --f-sans: 'Montserrat', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 2rem;
+  --sp-lg: 3rem;
+  --sp-section: 6rem;
+
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+  background-color: var(--c-obsidian);
+  color: var(--c-white);
+  font-family: var(--f-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; transition: var(--transition); }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT UTILITIES
+   ══════════════════════════════════════════════════════════════ */
+.store-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Glassmorphism Card — Dark Automotive Glass */
+.glass-panel {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Hairline Divider (from logo design language) */
+.hairline {
+  display: block;
+  height: 1px;
+  background: var(--c-border);
+  border: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   METALLIC SHEEN ANIMATION
+   ══════════════════════════════════════════════════════════════ */
+@keyframes metallic-sheen {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 1; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BUTTONS & CTAs
+   ══════════════════════════════════════════════════════════════ */
+.solvo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary CTA → Metallic outline, fills Racing Red on hover */
+.solvo-btn--primary {
+  background: transparent;
+  color: var(--c-chrome-hi);
+  border: 1px solid var(--c-chrome-mid);
+}
+.solvo-btn--primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+}
+.solvo-btn--primary:hover {
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 30px var(--c-red-dim);
+}
+.solvo-btn--primary:hover::before {
+  left: 100%;
+}
+
+/* Secondary Outline */
+.solvo-btn--outline {
+  background: transparent;
+  color: var(--c-chrome-mid);
+  border: 1px solid var(--c-border);
+}
+.solvo-btn--outline:hover {
+  border-color: var(--c-chrome-hi);
+  color: var(--c-white);
+}
+
+/* Ghost Link */
+.solvo-btn--ghost {
+  background: transparent;
+  color: var(--c-muted);
+  padding: 0.5rem 1rem;
+}
+.solvo-btn--ghost:hover {
+  color: var(--c-red);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER & NAVIGATION — Transparent-to-Solid on Scroll
+   ══════════════════════════════════════════════════════════════ */
+.store-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--c-border);
+  transition: background 0.4s ease;
+}
+.store-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0; /* Reduced from 1.25rem to balance utility bar */
+}
+
+/* Logo System */
+.brand-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.brand-logo svg {
+  height: 32px;
+  width: auto;
+}
+.brand-tagline {
+  font-size: 0.5625rem;
+  color: var(--c-chrome-lo);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Desktop Nav block moved to bottom */
+
+/* Header Utilities */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.action-icon {
+  position: relative;
+  color: var(--c-chrome-mid);
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.action-icon:hover { color: var(--c-chrome-hi); }
+.cart-badge {
+  position: absolute;
+  top: -6px; right: -8px;
+  background: var(--c-red);
+  color: #fff;
+  font-size: 0.5625rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 12px;
+  min-width: 16px;
+  text-align: center;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HERO SECTION — Cinematic Multi-Image Slideshow
+   ══════════════════════════════════════════════════════════════ */
+
+/* Ken Burns + Crossfade for 4 slides, 6s each = 24s total cycle */
+@keyframes hero-slide-1 {
+  0%      { opacity: 1; transform: scale(1); }
+  20.83%  { opacity: 1; transform: scale(1.08); }
+  25%     { opacity: 0; transform: scale(1.08); }
+  95.83%  { opacity: 0; transform: scale(1); }
+  100%    { opacity: 1; transform: scale(1); }
+}
+@keyframes hero-slide-2 {
+  0%      { opacity: 0; transform: scale(1); }
+  20.83%  { opacity: 0; transform: scale(1); }
+  25%     { opacity: 1; transform: scale(1); }
+  45.83%  { opacity: 1; transform: scale(1.08); }
+  50%     { opacity: 0; transform: scale(1.08); }
+  100%    { opacity: 0; transform: scale(1); }
+}
+@keyframes hero-slide-3 {
+  0%      { opacity: 0; transform: scale(1); }
+  45.83%  { opacity: 0; transform: scale(1); }
+  50%     { opacity: 1; transform: scale(1); }
+  70.83%  { opacity: 1; transform: scale(1.08); }
+  75%     { opacity: 0; transform: scale(1.08); }
+  100%    { opacity: 0; transform: scale(1); }
+}
+@keyframes hero-slide-4 {
+  0%      { opacity: 0; transform: scale(1); }
+  70.83%  { opacity: 0; transform: scale(1); }
+  75%     { opacity: 1; transform: scale(1); }
+  95.83%  { opacity: 1; transform: scale(1.08); }
+  100%    { opacity: 0; transform: scale(1.08); }
+}
+
+@keyframes hero-gradient-sweep {
+  0%   { opacity: 0.4; transform: translateX(-60%); }
+  50%  { opacity: 0.15; transform: translateX(60%); }
+  100% { opacity: 0.4; transform: translateX(-60%); }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 0.4; }
+  25%      { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+
+.solvo-hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-section) 0;
+  overflow: hidden;
+  background: var(--c-obsidian);
+}
+
+/* Slideshow Background Layers */
+.solvo-hero__slide {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.solvo-hero__slide--1 {
+  background-image: url('../img/solvo_hero_car.jpg');
+  animation: hero-slide-1 24s ease-in-out infinite;
+}
+.solvo-hero__slide--2 {
+  background-image: url('../img/dash_cam.jpg');
+  animation: hero-slide-2 24s ease-in-out infinite;
+}
+.solvo-hero__slide--3 {
+  background-image: url('../img/smart_car_charger.jpg');
+  animation: hero-slide-3 24s ease-in-out infinite;
+}
+.solvo-hero__slide--4 {
+  background-image: url('../img/car_care_kit.jpg');
+  animation: hero-slide-4 24s ease-in-out infinite;
+}
+
+/* Dark cinematic overlay */
+.solvo-hero__overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+    linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.4) 40%, rgba(10,10,10,0.82) 100%),
+    radial-gradient(ellipse at center, transparent 30%, rgba(10,10,10,0.5) 100%);
+  z-index: 2;
+}
+
+/* Animated red sweep glow */
+.solvo-hero__glow {
+  position: absolute;
+  top: -20%; left: -30%;
+  width: 80%; height: 140%;
+  background: radial-gradient(ellipse, rgba(196, 30, 58, 0.1) 0%, transparent 70%);
+  animation: hero-gradient-sweep 12s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Slide indicator dots */
+.solvo-hero__dots {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 15;
+}
+.solvo-hero__dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--c-chrome-lo);
+  opacity: 0.4;
+}
+.solvo-hero__dot:nth-child(1) { animation: dot-pulse 24s ease-in-out infinite; animation-delay: 0s; }
+.solvo-hero__dot:nth-child(2) { animation: dot-pulse 24s ease-in-out infinite; animation-delay: 6s; }
+.solvo-hero__dot:nth-child(3) { animation: dot-pulse 24s ease-in-out infinite; animation-delay: 12s; }
+.solvo-hero__dot:nth-child(4) { animation: dot-pulse 24s ease-in-out infinite; animation-delay: 18s; }
+
+/* Subtle grid lines for tech depth */
+.solvo-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px) 0 0 / 80px 80px,
+    linear-gradient(0deg, rgba(255,255,255,0.02) 1px, transparent 1px) 0 0 / 80px 80px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+.solvo-hero__content {
+  position: relative;
+  z-index: 10;
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 0;
+  padding-left: 5%;
+}
+.solvo-hero__content > * {
+  max-width: 860px;
+}
+
+.solvo-hero__eyebrow {
+  font-family: var(--f-sans);
+  font-size: 0.6875rem;
+  color: var(--c-chrome-mid);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: var(--sp-md);
+}
+
+.solvo-hero__title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--c-white);
+  margin-bottom: var(--sp-sm);
+}
+
+/* Racing Red divider — echoing the logo's "DRIVE BETTER. LIVE SMARTER." bars */
+.solvo-hero__divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+  width: 100%;
+  max-width: 440px;
+}
+.solvo-hero__divider .line {
+  flex: 1;
+  height: 1px;
+  background: var(--c-red);
+  opacity: 0.6;
+}
+.solvo-hero__divider .label {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: var(--c-chrome-lo);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.solvo-hero__desc {
+  font-size: clamp(1rem, 1.75vw, 1.25rem);
+  color: var(--c-muted);
+  line-height: 1.7;
+  max-width: 560px;
+  margin-bottom: var(--sp-lg);
+}
+
+.solvo-hero__actions {
+  display: flex;
+  gap: var(--sp-sm);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CATEGORY SHOWCASE — 4 Pillars
+   ══════════════════════════════════════════════════════════════ */
+.solvo-categories {
+  padding: var(--sp-section) 0;
+}
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.category-card {
+  position: relative;
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.category-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--c-border-h);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.category-card__icon {
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  background: var(--c-chrome-grad);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.category-card:hover .category-card__icon {
+  animation: metallic-sheen 1.5s ease forwards;
+}
+.category-card__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--c-white);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+.category-card__count {
+  font-size: 0.75rem;
+  color: var(--c-muted);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TRUST & CREDIBILITY STRIP
+   ══════════════════════════════════════════════════════════════ */
+.solvo-trust-bar {
+  margin-top: -3rem;
+  margin-bottom: var(--sp-lg);
+  position: relative;
+  z-index: 20;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-border);
+  padding: 1px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.trust-item {
+  background: var(--c-charcoal);
+  padding: var(--sp-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: var(--transition);
+}
+.trust-item:hover {
+  background: var(--c-gunmetal);
+}
+.trust-icon {
+  font-size: 1.5rem;
+  background: var(--c-chrome-grad);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+.trust-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--c-chrome-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PRODUCT SHOWCASE (WooCommerce Grid)
+   ══════════════════════════════════════════════════════════════ */
+.solvo-products {
+  padding: var(--sp-section) 0;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: var(--sp-lg);
+}
+.section-subtitle {
+  font-family: var(--f-sans);
+  font-size: 0.6875rem;
+  color: var(--c-chrome-lo);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.section-title {
+  font-family: var(--f-sans) !important;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--c-white);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s,
+              box-shadow 0.35s;
+  will-change: transform;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--c-border-h);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px var(--c-red-dim);
+}
+
+.product-card__media {
+  aspect-ratio: 1/1;
+  background: var(--c-gunmetal);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+.product-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.product-card:hover .product-card__media img {
+  transform: scale(1.05);
+}
+
+/* Badge — Red accent tag */
+.product-card__badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--c-red);
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.product-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.6875rem;
+  color: #F59E0B; /* Gold stars */
+}
+.product-stock {
+  font-size: 0.6875rem;
+  color: #10B981;
+}
+
+.product-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--c-white);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.product-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--c-white);
+}
+.product-price del {
+  font-size: 0.8125rem;
+  color: var(--c-muted);
+  margin-right: 0.5rem;
+  font-weight: 400;
+}
+.product-price ins {
+  text-decoration: none;
+  color: var(--c-red-bright);
+}
+
+/* Add to Cart — Chrome bordered, fills Red on hover */
+.btn-add-cart {
+  background: transparent;
+  color: var(--c-chrome-mid);
+  border: 1px solid var(--c-border-h);
+  padding: 0.625rem 1rem;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-add-cart:hover {
+  background: var(--c-red);
+  color: #fff;
+  border-color: var(--c-red);
+  box-shadow: 0 0 16px var(--c-red-dim);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AUTOMATED COMMERCE PIPELINE
+   ══════════════════════════════════════════════════════════════ */
+.solvo-pipeline {
+  padding: var(--sp-section) 0;
+  background: var(--c-charcoal);
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+}
+.pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-lg);
+  margin-top: var(--sp-lg);
+}
+.pipeline-step {
+  text-align: center;
+  position: relative;
+}
+.pipeline-icon {
+  width: 64px; height: 64px;
+  background: var(--c-gunmetal);
+  border: 1px solid var(--c-border-h);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.5rem;
+  color: var(--c-chrome-hi);
+  position: relative;
+  z-index: 2;
+  transition: var(--transition);
+}
+.pipeline-step:hover .pipeline-icon {
+  border-color: var(--c-red);
+  box-shadow: 0 0 20px var(--c-red-dim);
+}
+.pipeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c-border-h), transparent);
+  z-index: 1;
+}
+.pipeline-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+  color: var(--c-white);
+}
+.pipeline-desc {
+  font-size: 0.8125rem;
+  color: var(--c-muted);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   STATS COUNTER — Social Proof
+   ══════════════════════════════════════════════════════════════ */
+.solvo-stats {
+  padding: var(--sp-lg) 0;
+  border-bottom: 1px solid var(--c-border);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.stat-item {
+  background: var(--c-charcoal);
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+.stat-number {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  background: var(--c-chrome-grad);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.stat-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NEWSLETTER CTA
+   ══════════════════════════════════════════════════════════════ */
+.solvo-newsletter {
+  padding: var(--sp-section) 0;
+  text-align: center;
+}
+.newsletter-box {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--c-border);
+  background: var(--c-charcoal);
+  position: relative;
+  overflow: hidden;
+}
+.newsletter-box::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: 50%; transform: translateX(-50%);
+  width: 200px; height: 100px;
+  background: var(--c-red);
+  filter: blur(100px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+.newsletter-box h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.newsletter-box p {
+  color: var(--c-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.newsletter-form {
+  display: flex;
+  gap: 0;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+.newsletter-form input[type="email"] {
+  flex: 1;
+  background: var(--c-obsidian);
+  border: 1px solid var(--c-border-h);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding: 0.875rem 1rem;
+  color: var(--c-white);
+  font-size: 0.8125rem;
+  font-family: var(--f-sans);
+  outline: none;
+  transition: var(--transition);
+}
+.newsletter-form input[type="email"]::placeholder {
+  color: var(--c-muted);
+}
+.newsletter-form input[type="email"]:focus {
+  border-color: var(--c-red);
+}
+.newsletter-form button {
+  background: var(--c-red);
+  color: #fff;
+  border: 1px solid var(--c-red);
+  border-radius: 0 4px 4px 0;
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.newsletter-form button:hover {
+  background: var(--c-red-dark);
+  border-color: var(--c-red-dark);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER — Showroom Dark
+   ══════════════════════════════════════════════════════════════ */
+.store-footer {
+  background: var(--c-obsidian);
+  padding: var(--sp-section) 0 var(--sp-md);
+  border-top: 1px solid var(--c-border);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--sp-lg);
+  margin-bottom: var(--sp-lg);
+}
+.footer-brand p {
+  color: var(--c-muted);
+  font-size: 0.8125rem;
+  margin-top: 1rem;
+  max-width: 300px;
+  line-height: 1.7;
+}
+.footer-title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  color: var(--c-chrome-mid);
+}
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+.footer-links a {
+  color: var(--c-muted);
+  font-size: 0.8125rem;
+}
+.footer-links a:hover {
+  color: var(--c-chrome-hi);
+}
+.footer-bottom {
+  border-top: 1px solid var(--c-border);
+  padding-top: var(--sp-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  color: var(--c-muted);
+  letter-spacing: 0.05em;
+}
+.footer-bottom a {
+  color: var(--c-muted);
+}
+.footer-bottom a:hover {
+  color: var(--c-chrome-hi);
+}
+
+/* Social Icons — Chrome outlined */
+.footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+.footer-social a {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--c-border-h);
+  color: var(--c-chrome-lo);
+  font-size: 0.875rem;
+  transition: var(--transition);
+}
+.footer-social a:hover {
+  border-color: var(--c-red);
+  color: var(--c-red);
+  box-shadow: 0 0 12px var(--c-red-dim);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVENESS & STICKY CTA
+   ══════════════════════════════════════════════════════════════ */
+.mobile-sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; width: 100%;
+  padding: 1rem;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--c-border);
+  z-index: 9999;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Hamburger */
+.sv-mobile-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .trust-grid, .category-grid, .footer-grid, .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sv-mobile-btn { display: block; }
+  .header-nav { display: none; }
+  .solvo-hero { min-height: 80vh; }
+  .solvo-hero__title { font-size: 2.25rem; }
+  .solvo-hero__divider { max-width: 280px; }
+  .pipeline-grid { grid-template-columns: 1fr; }
+  .pipeline-step:not(:last-child)::after { display: none; }
+  .category-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .mobile-sticky-bar { display: flex; }
+  body { padding-bottom: 80px; }
+}
+
+@media (max-width: 480px) {
+  .solvo-hero__actions { flex-direction: column; width: 100%; }
+  .solvo-hero__actions .solvo-btn { width: 100%; }
+  .category-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   WOOCOMMERCE OVERRIDES
+   ══════════════════════════════════════════════════════════════ */
+.woocommerce .products ul, .woocommerce ul.products {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+.woocommerce ul.products li.product {
+  background: var(--c-charcoal) !important;
+  border: 1px solid var(--c-border) !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  margin: 0 !important;
+  width: 100% !important;
+  float: none !important;
+}
+
+.woocommerce ul.products li.product a.button,
+.woocommerce ul.products li.product .button {
+  background: transparent !important;
+  color: var(--c-chrome-mid) !important;
+  border: 1px solid var(--c-border-h) !important;
+  border-radius: 4px !important;
+  font-size: 0.6875rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.08em !important;
+  transition: var(--transition) !important;
+}
+.woocommerce ul.products li.product a.button:hover {
+  background: var(--c-red) !important;
+  color: #fff !important;
+  border-color: var(--c-red) !important;
+}
+
+.woocommerce .price {
+  color: var(--c-white) !important;
+}
+
+.woocommerce .price ins {
+  color: var(--c-red-bright) !important;
+  text-decoration: none !important;
+}
+
+/* White-background product image fix */
+.woocommerce ul.products li.product.has-white-bg img,
+.product-card.has-white-bg .product-card__media img {
+  mix-blend-mode: multiply;
+  background: var(--c-gunmetal);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   WOOCOMMERCE INNER PAGES (SHOP, ARCHIVES)
+   ══════════════════════════════════════════════════════════════ */
+.store-woocommerce-page {
+  padding-top: 0;
+  background-color: var(--c-obsidian);
+}
+  .woocommerce-products-header {
+    background: linear-gradient(180deg, var(--c-charcoal) 0%, var(--c-obsidian) 100%);
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .woocommerce-products-header__title {
+    font-size: 2.5rem;
+    font-family: var(--f-sans) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--c-white);
+  }
+  .woocommerce-breadcrumb {
+  margin-bottom: 1.5rem;
+  font-family: var(--f-sans);
+  font-size: 0.6875rem;
+  color: var(--c-chrome-lo);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.store-wc-breadcrumbs a {
+  color: var(--c-chrome-mid);
+}
+.store-wc-breadcrumbs a:hover {
+  color: var(--c-red);
+}
+.store-wc-breadcrumbs .breadcrumb-separator {
+  margin: 0 0.5rem;
+  color: var(--c-border-h);
+}
+.store-wc-page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--c-white);
+  margin-bottom: 1rem;
+}
+.store-wc-page-subtitle {
+  font-size: 1rem;
+  color: var(--c-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.store-wc-trust-bar {
+  border-top: 1px solid var(--c-border);
+  padding: 3rem 0;
+  margin-top: 4rem;
+  background: var(--c-charcoal);
+}
+.store-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.store-trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.store-trust-item .trust-icon {
+  font-size: 1.5rem;
+}
+.store-trust-item .trust-text h4 {
+  font-size: 0.8125rem;
+  color: var(--c-white);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.store-trust-item .trust-text p {
+  font-size: 0.75rem;
+  color: var(--c-muted);
+  line-height: 1.4;
+}
+@media (max-width: 1024px) {
+  .store-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .store-trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   STATIC PAGES (FAQ, ABOUT, POLICIES)
+   ══════════════════════════════════════════════════════════════ */
+.solvo-static-page {
+  background-color: var(--c-obsidian);
+  color: var(--c-chrome-mid);
+  padding-bottom: 4rem;
+}
+.solvo-page-hero {
+  background: linear-gradient(180deg, var(--c-charcoal) 0%, var(--c-obsidian) 100%);
+  padding: 6rem 0 3rem;
+  text-align: center;
+  border-bottom: 1px solid var(--c-border);
+  margin-bottom: 3rem;
+}
+.solvo-page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--c-white);
+  margin-bottom: 0;
+}
+.solvo-article-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+.solvo-article-wrapper h2, 
+.solvo-article-wrapper h3 {
+  color: var(--c-white);
+  font-family: var(--f-sans);
+  margin: 2.5rem 0 1rem;
+  letter-spacing: -0.02em;
+}
+.solvo-article-wrapper h2 { font-size: 2rem; }
+.solvo-article-wrapper h3 { font-size: 1.5rem; }
+.solvo-article-wrapper p { margin-bottom: 1.5rem; }
+.solvo-article-wrapper ul, 
+.solvo-article-wrapper ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+.solvo-article-wrapper li { margin-bottom: 0.5rem; }
+.solvo-article-wrapper a {
+  color: var(--c-red);
+  text-decoration: underline;
+}
+.solvo-article-wrapper a:hover {
+  color: var(--c-red-bright);
+}
+/* ══════════════════════════════════════════════════════════════
+   SINGLE PRODUCT PAGE ENHANCEMENTS
+   ══════════════════════════════════════════════════════════════ */
+.single-product .store-woocommerce-page {
+  padding-top: 4rem;
+}
+
+/* Trust Badges under Add to Cart */
+.solvo-product-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+}
+.solvo-product-trust .trust-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  color: var(--c-chrome-mid);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.solvo-product-trust .trust-item i {
+  color: var(--c-red);
+  font-size: 1.25rem;
+}
+
+/* Bundle Section */
+.solvo-fbt-bundle {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--c-border);
+}
+.solvo-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--c-white);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+.fbt-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  background: var(--c-charcoal);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+}
+.fbt-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.fbt-img {
+  width: 80px;
+  height: 80px;
+  background: var(--c-gunmetal);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--c-chrome-mid);
+  border: 1px solid var(--c-border-h);
+}
+.main-item .fbt-img {
+  border-color: var(--c-red);
+  box-shadow: 0 0 15px var(--c-red-dim);
+}
+.fbt-item span {
+  font-size: 0.75rem;
+  color: var(--c-chrome-lo);
+  font-weight: 600;
+}
+.fbt-plus {
+  font-size: 1.5rem;
+  color: var(--c-red);
+  font-weight: 800;
+}
+.fbt-action {
+  margin-left: auto;
+}
+
+/* Luxury Policies Accordion */
+.solvo-product-policies {
+  margin-top: 4rem;
+}
+.solvo-accordion {
+  border-top: 1px solid var(--c-border);
+}
+.solvo-accordion-item {
+  border-bottom: 1px solid var(--c-border);
+  padding: 1.5rem 0;
+}
+.solvo-accordion-item summary {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--c-chrome-hi);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.solvo-accordion-item summary::-webkit-details-marker {
+  display: none;
+}
+.solvo-accordion-item summary::after {
+  content: '+';
+  color: var(--c-red);
+  font-size: 1.5rem;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+.solvo-accordion-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.solvo-accordion-item .accordion-content {
+  margin-top: 1rem;
+  color: var(--c-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+@media (max-width: 768px) {
+  .fbt-container {
+    flex-direction: column;
+  }
+  .fbt-action {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .fbt-action .solvo-btn {
+    width: 100%;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PHASE 4: SITE-WIDE WOOCOMMERCE DARK THEME CONSISTENCY
+   ══════════════════════════════════════════════════════════════ */
+
+/* ─── Global: Force obsidian background everywhere ─── */
+body,
+body.woocommerce-page,
+body.woocommerce-cart,
+body.woocommerce-checkout,
+body.woocommerce-account,
+.woocommerce-page #primary,
+.woocommerce-page .site-main {
+  background-color: var(--c-obsidian) !important;
+  color: var(--c-chrome-mid);
+}
+
+/* ─── Cart Page ─── */
+.woocommerce-cart .woocommerce table.shop_table {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.woocommerce table.shop_table th {
+  background: var(--c-gunmetal);
+  color: var(--c-chrome-hi);
+  font-family: var(--f-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--c-border);
+}
+.woocommerce table.shop_table td {
+  background: var(--c-charcoal);
+  color: var(--c-chrome-mid);
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--c-border);
+  font-family: var(--f-sans);
+}
+.woocommerce table.shop_table td.product-name a {
+  color: var(--c-white);
+  font-weight: 600;
+}
+.woocommerce table.shop_table td.product-name a:hover {
+  color: var(--c-red);
+}
+.woocommerce table.shop_table td.product-remove a {
+  color: var(--c-chrome-lo) !important;
+}
+.woocommerce table.shop_table td.product-remove a:hover {
+  color: var(--c-red) !important;
+}
+.woocommerce .cart_totals,
+.woocommerce-cart .cart-collaterals {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+.woocommerce .cart_totals h2 {
+  color: var(--c-white);
+  font-family: var(--f-sans);
+}
+.woocommerce .cart_totals table {
+  border: none;
+}
+.woocommerce .cart_totals table td,
+.woocommerce .cart_totals table th {
+  background: transparent;
+  color: var(--c-chrome-mid);
+  border-bottom: 1px solid var(--c-border);
+}
+
+/* ─── Quantity Input ─── */
+.woocommerce .quantity .qty {
+  background: var(--c-gunmetal);
+  color: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-family: var(--f-sans);
+}
+
+/* ─── Checkout Page ─── */
+.woocommerce-checkout #customer_details,
+.woocommerce-checkout .woocommerce-checkout-review-order {
+  background: var(--c-charcoal);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+}
+.woocommerce form .form-row label {
+  color: var(--c-chrome-mid);
+  font-family: var(--f-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce form .form-row select,
+.select2-container--default .select2-selection--single {
+  background: var(--c-obsidian) !important;
+  color: var(--c-white) !important;
+  border: 1px solid var(--c-border) !important;
+  border-radius: 8px !important;
+  padding: 0.875rem 1rem !important;
+  font-family: var(--f-sans) !important;
+}
+.woocommerce form .form-row input.input-text:focus,
+.woocommerce form .form-row textarea:focus {
+  border-color: var(--c-red) !important;
+  outline: none;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--c-chrome-mid) !important;
+}
+.select2-dropdown {
+  background: var(--c-charcoal) !important;
+  border: 1px solid var(--c-border) !important;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background: var(--c-red) !important;
+}
+.select2-results__option {
+  color: var(--c-chrome-mid) !important;
+}
+
+/* ─── Checkout Headings ─── */
+.woocommerce-checkout h3,
+.woocommerce-checkout h2 {
+  color: var(--c-white);
+  font-family: var(--f-sans);
+}
+
+/* ─── Order Review Table (Checkout) ─── */
+.woocommerce-checkout-review-order-table {
+  background: var(--c-charcoal) !important;
+}
+.woocommerce-checkout-review-order-table th,
+.woocommerce-checkout-review-order-table td {
+  color: var(--c-chrome-mid) !important;
+  border-bottom: 1px solid var(--c-border) !important;
+}
+
+/* ─── Buttons (WooCommerce) ─── */
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  background: var(--c-red) !important;
+  color: var(--c-white) !important;
+  border: none !important;
+  border-radius: 6px;
+  font-family: var(--f-sans);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1rem 2rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+  background: var(--c-red-bright) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--c-red-dim);
+}
+
+/* ─── My Account Page ─── */
+.woocommerce-account .woocommerce-MyAccount-navigation {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
+  display: block;
+  padding: 1rem 1.5rem;
+  color: var(--c-chrome-mid);
+  font-family: var(--f-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--c-border);
+  transition: var(--transition);
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a:hover,
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a {
+  background: var(--c-gunmetal);
+  color: var(--c-white);
+  border-left: 3px solid var(--c-red);
+}
+.woocommerce-account .woocommerce-MyAccount-content {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 2rem;
+  color: var(--c-chrome-mid);
+}
+.woocommerce-account .woocommerce-MyAccount-content a {
+  color: var(--c-red);
+}
+
+/* ─── Login / Register Forms ─── */
+.woocommerce form.login,
+.woocommerce form.register,
+.woocommerce form.woocommerce-form-login,
+.woocommerce form.woocommerce-form-register {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/* ─── Notices / Messages ─── */
+.woocommerce-message,
+.woocommerce-info {
+  background: var(--c-charcoal) !important;
+  color: var(--c-chrome-mid) !important;
+  border-top-color: var(--c-red) !important;
+}
+.woocommerce-error {
+  background: var(--c-charcoal) !important;
+  color: var(--c-red-bright) !important;
+  border-top-color: var(--c-red) !important;
+}
+.woocommerce-message::before,
+.woocommerce-info::before {
+  color: var(--c-red) !important;
+}
+
+/* ─── Single Product Dark Overrides ─── */
+.single-product div.product {
+  color: var(--c-chrome-mid);
+}
+.single-product div.product .product_title {
+  color: var(--c-white);
+  font-family: var(--f-sans);
+}
+.single-product div.product .price {
+  color: var(--c-white) !important;
+  font-size: 1.75rem !important;
+  font-weight: 700;
+}
+.single-product div.product .price del {
+  color: var(--c-chrome-lo) !important;
+}
+.single-product div.product .price ins {
+  color: var(--c-red) !important;
+}
+.single-product .woocommerce-tabs {
+  background: var(--c-charcoal);
+  border: 1px solid var(--c-border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+.single-product .woocommerce-tabs ul.tabs {
+  background: var(--c-gunmetal) !important;
+  border-bottom: 1px solid var(--c-border) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.single-product .woocommerce-tabs ul.tabs li {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.single-product .woocommerce-tabs ul.tabs li a {
+  color: var(--c-chrome-lo) !important;
+  font-family: var(--f-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1.25rem 2rem !important;
+  display: block;
+}
+.single-product .woocommerce-tabs ul.tabs li.active a {
+  color: var(--c-white) !important;
+  border-bottom: 2px solid var(--c-red) !important;
+}
+.single-product .woocommerce-tabs .panel {
+  padding: 2rem;
+  color: var(--c-chrome-mid);
+}
+.single-product .woocommerce-tabs .panel h2 {
+  color: var(--c-white);
+  font-family: var(--f-sans);
+}
+
+/* ─── Related Products ─── */
+.single-product .related.products > h2,
+.single-product .upsells.products > h2 {
+  color: var(--c-white);
+  font-family: var(--f-sans);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ─── Product Gallery Dark ─── */
+.single-product .woocommerce-product-gallery {
+  background: var(--c-charcoal);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ─── Breadcrumbs ─── */
+.woocommerce-breadcrumb {
+  color: var(--c-chrome-lo) !important;
+  font-family: var(--f-sans);
+  font-size: 0.8125rem;
+}
+.woocommerce-breadcrumb a {
+  color: var(--c-chrome-mid) !important;
+}
+.woocommerce-breadcrumb a:hover {
+  color: var(--c-red) !important;
+}
+
+/* ─── Pagination ─── */
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+  background: var(--c-charcoal) !important;
+  color: var(--c-chrome-mid) !important;
+  border-color: var(--c-border) !important;
+}
+.woocommerce nav.woocommerce-pagination ul li span.current {
+  background: var(--c-red) !important;
+  color: var(--c-white) !important;
+  border-color: var(--c-red) !important;
+}
+
+/* ─── Coupon field ─── */
+.woocommerce .coupon .input-text {
+  background: var(--c-obsidian) !important;
+  color: var(--c-white) !important;
+  border: 1px solid var(--c-border) !important;
+  border-radius: 6px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER UTILITY BAR (Tier 2)
+   ══════════════════════════════════════════════════════════════ */
+.store-header__utility {
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0;
+}
+.utility-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+}
+.utility-nav__list a {
+  font-size: 0.65rem;
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.utility-nav__list a:hover {
+  color: var(--c-chrome-hi);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   NAVIGATION DROPDOWN MEGA-MENU (Tier 1)
+   ══════════════════════════════════════════════════════════════ */
+.header-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.header-nav__item {
+  position: relative;
+}
+.header-nav__link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--c-chrome-mid);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+.header-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--c-chrome-grad);
+  background-size: 200% 100%;
+  transition: width 0.3s ease;
+}
+.header-nav__link:hover {
+  color: var(--c-chrome-hi);
+}
+.header-nav__link:hover::after {
+  width: 100%;
+}
+
+/* Dropdown Container */
+.header-nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 240px;
+  background: rgba(14, 14, 16, 0.98);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 0.75rem 0;
+  z-index: 10000;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  margin-top: 1rem; /* push down slightly to clear the header */
+  list-style: none;
+  
+  /* Hidden by default, does not affect flow */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Invisible bridge so mouse doesn't fall off when moving to dropdown */
+.header-nav__dropdown::before {
+  content: '';
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  width: 100%;
+  height: 1rem;
+}
+
+/* Show on Hover */
+.header-nav__item:hover .header-nav__dropdown,
+.header-nav__item:focus-within .header-nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown Items */
+.header-nav__dropdown-item {
+  display: block;
+}
+.header-nav__dropdown-link {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--c-chrome-mid);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--transition);
+  font-family: var(--f-sans);
+}
+.header-nav__dropdown-link:hover {
+  color: var(--c-white);
+  background: rgba(196, 30, 58, 0.15); /* Racing Red tint */
+  padding-left: 2rem;
+}
+
+/* Active nav link */
+.header-nav__link--active {
+  color: var(--c-white) !important;
+}
+.header-nav__link--active::after {
+  width: 100% !important;
+  background: var(--c-red) !important;
+}
+
+/* ==========================================================================
+   SOLVO Static Landing Pages (FAQ, Contact, Tracking)
+   ========================================================================== */
+
+/* FAQ Accordion */
+.faq-group { margin-bottom: 40px; }
+.faq-group-title { font-family: var(--f-mono); color: var(--c-red-accent); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+.faq-item { background: #151515; border: 1px solid #222; margin-bottom: 15px; border-radius: 4px; overflow: hidden; transition: all 0.3s ease; }
+.faq-item:hover { border-color: var(--c-chrome-dark); }
+.faq-question { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: 600; font-size: 1.1rem; }
+.faq-question i { color: var(--c-chrome-mid); transition: transform 0.3s ease; }
+.faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: var(--c-chrome-light); line-height: 1.6; }
+.faq-item.active .faq-answer { padding: 0 20px 20px 20px; max-height: 500px; }
+.faq-item.active .faq-question i { transform: rotate(180deg); color: var(--c-red-accent); }
+.faq-item.active { border-color: var(--c-red-accent); }
+
+/* Contact Form */
+.solvo-contact-form input:focus, .solvo-contact-form select:focus, .solvo-contact-form textarea:focus { outline: none; border-color: var(--c-red-accent); }
+.solvo-contact-form button:hover { background: #a01830; }
+@media (max-width: 768px) {
+    .solvo-contact-section > div { grid-template-columns: 1fr !important; }
+}
+
+/* Tracking Form */
+.solvo-tracking-form input:focus { outline: none; border-color: var(--c-red-accent); }
+.solvo-tracking-form button:hover { background: #a01830; }
+@media (max-width: 768px) {
+    .solvo-tracking-section > div:last-child { grid-template-columns: 1fr !important; }
+}
+
+
+
+/* ==========================================================================
+   SOLVO Single Product Layout (Phase 12.6)
+   ========================================================================== */
+
+.solvo-accordion-wrapper {
+    margin-top: 2rem;
+}
+
+.solvo-accordion {
+    border-bottom: 1px solid var(--c-chrome-dark);
+    margin-bottom: 1rem;
+}
+
+.solvo-accordion summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    font-family: var(--f-mono);
+    color: var(--c-white);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    list-style: none; /* Hide default arrow */
+    transition: color 0.3s ease;
+}
+
+.solvo-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.solvo-accordion summary:hover {
+    color: var(--c-red-accent);
+}
+
+.solvo-accordion summary i {
+    transition: transform 0.3s ease;
+    color: var(--c-chrome-mid);
+}
+
+.solvo-accordion[open] summary i {
+    transform: rotate(180deg);
+    color: var(--c-red-accent);
+}
+
+.solvo-accordion-content {
+    padding-bottom: 1.5rem;
+    color: var(--c-ash);
+    line-height: 1.8;
+}
+
+.solvo-accordion-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.solvo-accordion-content ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.solvo-accordion-content ul li::before {
+    content: "�";
+    position: absolute;
+    left: 0;
+    color: var(--c-red-accent);
+}
+
+/* ==========================================================================
+   SOLVO WooCommerce Cart & Checkout Reskin (Dark Mode)
+   ========================================================================== */
+
+.woocommerce-cart .site-main,
+.woocommerce-checkout .site-main,
+.woocommerce-account .site-main {
+    background-color: var(--c-black);
+    color: var(--c-ash);
+    padding: 4rem 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.woocommerce-cart h1, .woocommerce-cart h2, .woocommerce-cart h3,
+.woocommerce-checkout h1, .woocommerce-checkout h2, .woocommerce-checkout h3,
+.woocommerce-account h1, .woocommerce-account h2, .woocommerce-account h3 {
+    color: var(--c-white);
+    font-family: var(--f-mono);
+    text-transform: uppercase;
+}
+
+.woocommerce table.shop_table {
+    border: 1px solid var(--c-chrome-dark);
+    border-radius: 4px;
+}
+
+.woocommerce table.shop_table th {
+    background-color: #111;
+    color: var(--c-chrome-hi);
+    border-bottom: 1px solid var(--c-chrome-dark);
+}
+
+.woocommerce table.shop_table td {
+    border-top: 1px solid var(--c-chrome-dark);
+    color: var(--c-white);
+}
+
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout .input-text,
+.woocommerce-account .input-text {
+    background-color: #111;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+.woocommerce-cart table.cart td.actions .coupon .input-text:focus,
+.woocommerce-checkout .input-text:focus,
+.woocommerce-account .input-text:focus {
+    border-color: var(--c-red-accent);
+}
+
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+    background-color: #111 !important;
+    color: #fff !important;
+    border-top-color: var(--c-red-accent) !important;
+}
+
+.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
+    color: var(--c-red-accent) !important;
+}
+
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment {
+    background: #111;
+    border-radius: 4px;
+    border: 1px solid #222;
+}
+
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box {
+    background-color: #0a0a0a;
+    color: var(--c-ash);
+}
+
+#add_payment_method #payment div.payment_box::before, .woocommerce-cart #payment div.payment_box::before, .woocommerce-checkout #payment div.payment_box::before {
+    border-bottom-color: #0a0a0a;
+}
+
+
+@media (max-width: 768px) {
+    .solvo-product-hero {
+        grid-template-columns: 1fr;
+    }
+    .solvo-product-gallery {
+        position: relative;
+        top: 0;
+    }
+    .solvo-product-specs .specs-grid {
+        grid-template-columns: 1fr;
+    }
+    .solvo-product-reviews .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* WooCommerce Archive Grid Fix */
+ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.products::before, ul.products::after {
+    display: none !important; /* Remove float clearfix */
+}
+

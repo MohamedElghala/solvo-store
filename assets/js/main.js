@@ -1,4 +1,4 @@
-// SOLVO Single-Product Vercel Storefront JS
+// SOLVO Single-Product & Flagship Storefront JS
 
 // 1. Car Data for Fitment Selector
 const carData = {
@@ -16,8 +16,8 @@ const carData = {
     'kia': ['EV6', 'K5', 'Telluride', 'Sportage', 'Stinger']
 };
 
-function updateModels(make) {
-    const modelSelect = document.getElementById('fitment-model');
+function solvoUpdateModels(make) {
+    const modelSelect = document.getElementById('solvo-fitment-model') || document.getElementById('fitment-model');
     if (!modelSelect) return;
     modelSelect.innerHTML = '<option value="">[SELECT MODEL]</option>';
     if (carData[make]) {
@@ -29,21 +29,35 @@ function updateModels(make) {
         });
     }
 }
+function updateModels(make) { solvoUpdateModels(make); }
 
-function verifyFitment() {
-    const make = document.getElementById('fitment-make').value;
-    const model = document.getElementById('fitment-model').value;
-    const year = document.getElementById('fitment-year').value;
-    const resultBox = document.getElementById('fitment-result');
+function solvoSubmitFitment(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const makeElem = document.getElementById('solvo-fitment-make') || document.getElementById('fitment-make');
+    const modelElem = document.getElementById('solvo-fitment-model') || document.getElementById('fitment-model');
+    const yearElem = document.getElementById('solvo-fitment-year') || document.getElementById('fitment-year');
+    const resultBox = document.getElementById('solvo-fitment-result') || document.getElementById('fitment-result');
+
+    const make = makeElem ? makeElem.value : '';
+    const model = modelElem && modelElem.selectedIndex > 0 ? modelElem.options[modelElem.selectedIndex].text : '';
+    const year = yearElem ? yearElem.value : '';
 
     if (!make) {
-        alert('Please select your vehicle make first.');
-        return;
+        if (makeElem) {
+            makeElem.focus();
+            makeElem.style.borderColor = '#DC2626';
+            setTimeout(() => { makeElem.style.borderColor = ''; }, 1500);
+        }
+        return false;
     }
 
-    resultBox.style.display = 'block';
-    resultBox.innerHTML = '<i class="fa-solid fa-circle-check"></i> <strong>100% Guaranteed Fit:</strong> Certified SOLVO SeatGap Organizer is engineered to fit your <strong>' + (year ? year + ' ' : '') + make.toUpperCase() + (model ? ' ' + model : '') + '</strong>. Order with confidence — covered by our 30-day money-back guarantee.';
+    if (resultBox) {
+        resultBox.style.display = 'block';
+        resultBox.innerHTML = '<i class="fa-solid fa-circle-check" style="color:#22C55E;margin-right:6px;"></i> <strong>100% Guaranteed Fitment:</strong> Certified SOLVO precision accessories are engineered for your <strong>' + (year ? year + ' ' : '') + make.toUpperCase() + (model ? ' ' + model : '') + '</strong>. Covered by our 30-day money-back guarantee.';
+    }
+    return false;
 }
+function verifyFitment() { solvoSubmitFitment(); }
 
 // 2. Before & After Slider
 function initBeforeAfter() {
@@ -93,106 +107,71 @@ function selectBundle(bundleNum, price, name) {
         if (icon) icon.className = 'fa-solid fa-circle-dot';
     }
 
-    document.getElementById('summary-bundle-name').textContent = name;
-    document.getElementById('summary-total-price').textContent = '$' + price.toFixed(2) + ' USD';
+    const nameElem = document.getElementById('summary-bundle-name');
+    if (nameElem) nameElem.textContent = name;
     
-    // Update sticky CTA price
-    const stickyPrice = document.querySelector('.sticky-price');
-    if (stickyPrice) stickyPrice.textContent = '$' + price.toFixed(2);
+    const priceElem = document.getElementById('summary-total-price');
+    if (priceElem) priceElem.textContent = '$' + price.toFixed(2) + ' USD';
 }
 
 // 4. Order Form Submit
 function handleOrderSubmit(e) {
     e.preventDefault();
-    const name = document.getElementById('cust-name').value;
-    const email = document.getElementById('cust-email').value;
-
     const btn = document.getElementById('btn-pay');
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Secure Payment...';
-    btn.style.opacity = '0.7';
+    if (btn) {
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Connecting to Secure Gateway...';
+        btn.style.opacity = '0.8';
+    }
 
     setTimeout(() => {
-        // In production, replace with PayPal SDK redirect
-        alert('🎉 ORDER SIMULATION SUCCESSFUL!\n\nCustomer: ' + name + '\nEmail: ' + email + '\nPackage: ' + currentBundleName + '\nTotal: $' + currentBundlePrice.toFixed(2) + ' USD\n\n(When you link your live PayPal Merchant ID, the real payment window opens here!)');
-        btn.innerHTML = '<i class="fa-brands fa-paypal"></i> PAY SECURELY WITH PAYPAL / CARD';
-        btn.style.opacity = '1';
+        alert('🎉 ORDER SIMULATION SUCCESSFUL!\n\nPackage: ' + currentBundleName + '\nTotal: $' + currentBundlePrice.toFixed(2) + ' USD\n\n(When your PayPal Client ID is linked, the secure PayPal popup opens here!)');
+        if (btn) {
+            btn.innerHTML = '<i class="fa-brands fa-paypal"></i> SECURE CHECKOUT WITH PAYPAL / CARD';
+            btn.style.opacity = '1';
+        }
     }, 1200);
 }
 
-// 5. Mobile Menu Toggle
-function toggleMobileMenu() {
-    const nav = document.getElementById('mobile-nav');
+// 5. Mobile Nav Toggle
+function toggleFlagshipNav() {
+    const nav = document.getElementById('flagship-mobile-nav') || document.getElementById('mobile-nav');
     if (nav) nav.classList.toggle('active');
 }
 
-// 6. Email Capture
-function handleEmailCapture(e) {
-    e.preventDefault();
-    const input = e.target.querySelector('input');
-    const email = input.value;
-    
-    // Show success feedback
-    const box = document.querySelector('.email-capture-box');
-    if (box) {
-        box.innerHTML = '<i class="fa-solid fa-circle-check" style="font-size:2rem;color:#22C55E;margin-bottom:1rem;"></i>' +
-            '<h3 style="color:#22C55E;">YOU\'RE IN! 🎉</h3>' +
-            '<p>Check <strong>' + email + '</strong> for your exclusive 10% discount code.</p>';
-    }
-}
-
-// 7. Sticky Mobile CTA - show after scrolling past hero
-function initStickyCTA() {
-    const cta = document.getElementById('sticky-cta');
-    if (!cta) return;
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 600) {
-            cta.style.display = 'block';
-        } else {
-            cta.style.display = 'none';
-        }
-    });
-}
-
-// 8. FAQ Accordion (for faq.html)
+// 6. FAQ Accordion (for faq.html)
 function initFAQ() {
     document.querySelectorAll('.faq-question').forEach(q => {
         q.addEventListener('click', () => {
             const item = q.parentElement;
             const wasActive = item.classList.contains('active');
-            
-            // Close all
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-            
-            // Toggle clicked
             if (!wasActive) item.classList.add('active');
         });
     });
 }
 
-// 9. Contact Form (for contact.html)
+// 7. Contact Form (for contact.html)
 function handleContactSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
-    const originalText = btn.innerHTML;
-    
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-    btn.disabled = true;
+    if (btn) {
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+        btn.disabled = true;
+    }
     
     setTimeout(() => {
         const form = e.target;
         const box = form.parentElement;
         box.innerHTML = '<div style="text-align:center;padding:2rem;">' +
             '<i class="fa-solid fa-circle-check" style="font-size:2.5rem;color:#22C55E;margin-bottom:1rem;display:block;"></i>' +
-            '<h3 style="margin-bottom:0.5rem;">Message Sent Successfully!</h3>' +
-            '<p style="color:var(--c-muted);">We\'ll get back to you within 24 hours at the email you provided.</p>' +
+            '<h3 style="margin-bottom:0.5rem;color:#fff;">Message Sent Successfully!</h3>' +
+            '<p style="color:#94A3B8;">Our support team will respond to your email within 24 hours.</p>' +
             '</div>';
     }, 1000);
 }
 
-// Init all
+// Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
     initBeforeAfter();
-    initStickyCTA();
     initFAQ();
 });
