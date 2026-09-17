@@ -693,12 +693,15 @@
 
             <div id="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:1.75rem;">
                 <!-- Product 1 -->
-                <div class="product-card" data-cat="org">
+                <div class="product-card" data-cat="org" onclick="openProductModal('seatgap')">
                     <div class="product-card__media">
                         <img src="assets/img/seatgap_hero.jpg" alt="SOLVO SeatGap Organizer Pro">
                         <div class="product-card__badges">
                             <span class="badge badge--sale">-46%</span>
                             <span class="badge badge--bestseller">VIRAL #1</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -710,18 +713,21 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$24.00 <del style="color:#64748B;font-size:0.85rem;">$45.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">SELECT PACKAGE</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('seatgap');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="product-card" data-cat="cockpit">
+                <div class="product-card" data-cat="cockpit" onclick="openProductModal('dashcam')">
                     <div class="product-card__media">
                         <img src="assets/img/dash_cam.jpg" alt="4K Stealth AI Dash Cam">
                         <div class="product-card__badges">
                             <span class="badge badge--new">4K SONY</span>
                             <span class="badge badge--sale">-25%</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -733,17 +739,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$119.00 <del style="color:#64748B;font-size:0.85rem;">$160.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('dashcam');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="product-card" data-cat="cockpit">
+                <div class="product-card" data-cat="cockpit" onclick="openProductModal('carplay')">
                     <div class="product-card__media">
                         <img src="assets/img/smart_car_charger.jpg" alt="Wireless CarPlay & Android Auto 2-in-1 Adapter">
                         <div class="product-card__badges">
                             <span class="badge badge--bestseller">PLUG & PLAY</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -755,17 +764,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$39.00 <del style="color:#64748B;font-size:0.85rem;">$65.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('carplay');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 4 -->
-                <div class="product-card" data-cat="care">
+                <div class="product-card" data-cat="care" onclick="openProductModal('vacuum')">
                     <div class="product-card__media">
                         <img src="assets/img/solvo_hero_car.jpg" alt="Cordless 120W Turbo Vacuum and Air Duster">
                         <div class="product-card__badges">
                             <span class="badge badge--sale">-38%</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -777,17 +789,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$34.00 <del style="color:#64748B;font-size:0.85rem;">$55.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('vacuum');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 5 -->
-                <div class="product-card" data-cat="cockpit">
+                <div class="product-card" data-cat="cockpit" onclick="openProductModal('cryo-mount')">
                     <div class="product-card__media">
                         <img src="assets/img/solvo-hero-2.jpg" alt="MagSafe 15W Cryo-Cooling Car Mount">
                         <div class="product-card__badges">
                             <span class="badge badge--new">CRYO COOL</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -799,17 +814,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$28.00 <del style="color:#64748B;font-size:0.85rem;">$48.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('cryo-mount');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 6 -->
-                <div class="product-card" data-cat="care">
+                <div class="product-card" data-cat="care" onclick="openProductModal('ceramic')">
                     <div class="product-card__media">
                         <img src="assets/img/car_care_kit.jpg" alt="9H Nano-Diamond Ceramic Coating">
                         <div class="product-card__badges">
                             <span class="badge badge--bestseller">9H SHIELD</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -821,17 +839,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$45.00 <del style="color:#64748B;font-size:0.85rem;">$75.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('ceramic');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 7 -->
-                <div class="product-card" data-cat="emergency">
+                <div class="product-card" data-cat="emergency" onclick="openProductModal('inflator')">
                     <div class="product-card__media">
                         <img src="assets/img/solvo-hero-3.jpg" alt="150 PSI Digital Smart Tire Inflator">
                         <div class="product-card__badges">
                             <span class="badge badge--new">AUTO-STOP</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -843,17 +864,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$42.00 <del style="color:#64748B;font-size:0.85rem;">$68.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('inflator');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 8 -->
-                <div class="product-card" data-cat="cockpit">
+                <div class="product-card" data-cat="cockpit" onclick="openProductModal('visor')">
                     <div class="product-card__media">
                         <img src="assets/img/solvo-hero-4.jpg" alt="Polarized Anti-Glare HD Night Visor">
                         <div class="product-card__badges">
                             <span class="badge badge--sale">-42%</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -865,17 +889,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$22.00 <del style="color:#64748B;font-size:0.85rem;">$38.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('visor');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 9 -->
-                <div class="product-card" data-cat="org">
+                <div class="product-card" data-cat="org" onclick="openProductModal('trunk-vault')">
                     <div class="product-card__media">
                         <img src="assets/img/trunk_organizer.jpg" alt="Aerospace Carbon Cargo Vault Trunk Organizer">
                         <div class="product-card__badges">
                             <span class="badge badge--bestseller">1680D NYLON</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -887,17 +914,20 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$49.00 <del style="color:#64748B;font-size:0.85rem;">$85.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('trunk-vault');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Product 10 -->
-                <div class="product-card" data-cat="care">
+                <div class="product-card" data-cat="care" onclick="openProductModal('purifier')">
                     <div class="product-card__media">
                         <img src="assets/img/solvo_luxury_hero_banner.jpg" alt="Ultrasonic Active Ion Cabin Air Purifier">
                         <div class="product-card__badges">
                             <span class="badge badge--new">IONIC TECH</span>
+                        </div>
+                        <div class="product-card__overlay">
+                            <span class="product-card__quickview"><i class="fa-regular fa-eye"></i> QUICK VIEW</span>
                         </div>
                     </div>
                     <div style="padding:1.25rem 0.5rem;display:flex;flex-direction:column;flex:1;justify-content:space-between;">
@@ -909,7 +939,7 @@
                         </div>
                         <div>
                             <div style="font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.15rem;color:#fff;">$29.00 <del style="color:#64748B;font-size:0.85rem;">$49.00</del></div>
-                            <a href="#solvo-flagship" class="solvo-btn-metallic" style="display:block;text-align:center;margin-top:0.75rem;padding:0.6rem;font-size:0.75rem;">ORDER NOW</a>
+                            <button type="button" class="solvo-btn-metallic" onclick="event.stopPropagation(); openProductModal('purifier');" style="width:100%;border:none;display:block;text-align:center;margin-top:0.75rem;padding:0.65rem;font-size:0.75rem;cursor:pointer;">VIEW DETAILS & ORDER</button>
                         </div>
                     </div>
                 </div>
@@ -1081,6 +1111,52 @@
             </div>
         </div>
     </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         INTERACTIVE PRODUCT QUICK-VIEW & LANDING MODAL
+    ════════════════════════════════════════════════════════════════ -->
+    <div class="product-modal-backdrop" id="solvo-product-modal" onclick="if(event.target===this) closeProductModal()">
+        <div class="product-modal-box">
+            <button class="modal-close-btn" onclick="closeProductModal()" aria-label="Close Product View">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-img-wrap">
+                    <img src="assets/img/seatgap_hero.jpg" alt="SOLVO Product" id="modal-img">
+                </div>
+                <div class="modal-details" style="display:flex;flex-direction:column;justify-content:space-between;">
+                    <div>
+                        <div class="modal-tag" id="modal-cat">CABIN ORGANIZATION</div>
+                        <h2 class="modal-title" id="modal-title">SOLVO SeatGap Organizer™</h2>
+                        <div id="modal-rating" style="color:#FBBF24;font-size:0.85rem;margin:0.25rem 0 0.75rem;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            <span style="color:#94A3B8;margin-left:6px;" id="modal-reviews">(1,247 verified reviews)</span>
+                        </div>
+                        <div class="modal-price-strip">
+                            <span class="modal-price" id="modal-price">$24.00</span>
+                            <span class="modal-old-price" id="modal-old-price">$45.00</span>
+                            <span class="modal-save-badge" id="modal-badge">SAVE 46%</span>
+                        </div>
+                        <p class="modal-desc" id="modal-desc">
+                            Ends the seat-gap black hole once and for all. Premium aerospace carbon fiber finish with dual retractable high-speed USB-C and Lightning cables.
+                        </p>
+                        <ul class="modal-bullets" id="modal-bullets">
+                            <li><i class="fa-solid fa-circle-check"></i> Universal Fit for 99% of Vehicles</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Built-In Retractable Fast-Charging</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Memory Foam Non-Slip Stabilizer</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;padding:0.75rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;">
+                            <i class="fa-solid fa-truck-fast" style="color:#22C55E;font-size:1.1rem;"></i>
+                            <span style="font-size:0.82rem;color:#94A3B8;"><strong style="color:#fff;">In Stock:</strong> Ships within 24h &bull; 30-Day Money Back Guarantee</span>
+                        </div>
+                        <button type="button" class="modal-btn-buy" id="modal-buy-btn" onclick="handleModalBuy()">
+                            <i class="fa-solid fa-bolt" style="margin-right:8px;"></i> INSTANT ORDER / SECURE CHECKOUT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
     <script>
