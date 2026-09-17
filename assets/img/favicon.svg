@@ -1,1 +1,5 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="128" fill="#111111"/><path d="M344 192c0-35.3-28.7-64-64-64h-48c-35.3 0-64 28.7-64 64s28.7 64 64 64h48c17.7 0 32 14.3 32 32s-14.3 32-32 32H184c-13.3 0-24 10.7-24 24v32c0 13.3 10.7 24 24 24h96c35.3 0 64-28.7 64-64s-28.7-64-64-64h-48c-17.7 0-32-14.3-32-32s14.3-32 32-32h96c13.3 0 24-10.7 24-24v-32c0-13.3-10.7-24-24-24z" fill="#C41E3A"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#08090B"/>
+  <rect x="1" y="1" width="30" height="30" rx="5" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+  <text x="16" y="22" text-anchor="middle" font-family="'Montserrat','Arial',sans-serif" font-weight="900" font-size="16" fill="#F8FAFC" letter-spacing="0.5">S</text>
+</svg>

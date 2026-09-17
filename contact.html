@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Customer Support — SOLVO</title>
+    <meta name="description" content="Contact SOLVO customer support. We are here to help with your orders, vehicle fitment, shipping inquiries, and returns.">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="announcement-bar"><span><i class="fa-solid fa-bolt"></i> LIMITED LAUNCH OFFER: FREE EXPRESS GLOBAL SHIPPING ON ORDERS $35+</span></div>
+    <header class="solvo-header">
+        <div class="store-container header-inner">
+            <a href="index.html" class="brand-logo"><span class="logo-text">SOLVO</span><span class="logo-badge">PRO</span></a>
+            <nav class="header-nav"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
+            <div class="header-actions"><a href="index.html#order-section" class="btn-header-buy">SHOP NOW</a></div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+        </div>
+        <div class="mobile-nav" id="mobile-nav"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a><a href="index.html#order-section" class="btn-header-buy">SHOP NOW</a></div>
+    </header>
+
+    <main class="page-content">
+        <h1>Contact Support</h1>
+        <p class="page-updated">Have questions or need assistance? Our team is at your service.</p>
+
+        <div class="contact-grid">
+            <div>
+                <form class="contact-form" onsubmit="handleContactSubmit(event)">
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="text" placeholder="Order Number (if applicable, e.g. #SOLVO-1024)">
+                    <select required>
+                        <option value="">Select Topic</option>
+                        <option value="order">Order Status & Tracking</option>
+                        <option value="fitment">Vehicle Compatibility</option>
+                        <option value="return">Returns & Refunds</option>
+                        <option value="product">Product Details</option>
+                        <option value="other">General Inquiry</option>
+                    </select>
+                    <textarea placeholder="How can we help you today?" required></textarea>
+                    <button type="submit"><i class="fa-solid fa-paper-plane"></i> SEND MESSAGE</button>
+                </form>
+            </div>
+
+            <div>
+                <div class="contact-info-card">
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Direct Email Support</h4>
+                            <p>support@solvo.store</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <div>
+                            <h4>Support Hours</h4>
+                            <p>Monday – Friday: 9:00 AM – 6:00 PM EST<br>Response time: Within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div>
+                            <h4>Order Guarantee</h4>
+                            <p>All purchases are covered by our 30-Day Risk-Free Money-Back Guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <div>
+                            <h4>Instant Answers</h4>
+                            <p>Looking for quick answers? Check out our <a href="faq.html">FAQ section</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="solvo-footer">
+        <div class="store-container footer-inner">
+            <div class="footer-brand"><span class="footer-logo">SOLVO</span><p>Precision. Presence. SOLVO.</p></div>
+            <div class="footer-columns">
+                <div class="footer-col"><h4>SHOP</h4><a href="index.html">SeatGap Organizer™</a></div>
+                <div class="footer-col"><h4>SUPPORT</h4><a href="faq.html">FAQ</a><a href="contact.html">Contact Us</a><a href="shipping.html">Shipping</a></div>
+                <div class="footer-col"><h4>POLICIES</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms & Conditions</a><a href="returns.html">Returns & Refunds</a></div>
+            </div>
+            <div class="footer-bottom"><div class="footer-copy">&copy; 2026 SOLVO Inc. All rights reserved.</div></div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

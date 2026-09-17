@@ -1,15 +1,64 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOLVO — SeatGap Organizer™ | Precision Automotive Luxury</title>
-    <meta name="description" content="Precision. Presence. SOLVO. The ultimate carbon fiber seat gap organizer and high-speed USB-C charging hub for luxury vehicles.">
+    <title>SOLVO SeatGap Organizer™ — Premium Carbon Fiber Car Seat Gap Filler with USB-C Charging</title>
+    <meta name="description" content="Stop losing your phone, keys & cards in the seat gap forever. SOLVO SeatGap Organizer™ — aerospace carbon fiber gap filler with built-in dual USB-C fast charging. Universal fit for 99% of vehicles. Free shipping on 2-pack. 30-day money-back guarantee.">
+    <meta name="keywords" content="car seat gap filler, seat gap organizer, carbon fiber car organizer, USB-C car charger, car seat crevice filler, seat gap plug, luxury car accessories, SOLVO">
+    <link rel="canonical" href="https://solvo.store/">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://solvo.store/">
+    <meta property="og:title" content="SOLVO SeatGap Organizer™ — End the Seat Gap Black Hole">
+    <meta property="og:description" content="Premium carbon fiber seat gap filler with dual USB-C fast charging. Universal fit. 30-day money-back guarantee. Free shipping on 2-pack orders.">
+    <meta property="og:image" content="https://solvo.store/assets/img/seatgap_hero.jpg">
+    <meta property="og:site_name" content="SOLVO">
+    <meta property="product:price:amount" content="24.00">
+    <meta property="product:price:currency" content="USD">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SOLVO SeatGap Organizer™ — End the Seat Gap Black Hole">
+    <meta name="twitter:description" content="Premium carbon fiber seat gap filler with dual USB-C fast charging. Universal fit. 30-day money-back guarantee.">
+    <meta name="twitter:image" content="https://solvo.store/assets/img/seatgap_hero.jpg">
+
+    <!-- JSON-LD Product Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "SOLVO SeatGap Organizer™",
+        "image": ["https://solvo.store/assets/img/seatgap_hero.jpg", "https://solvo.store/assets/img/seatgap_after.jpg"],
+        "description": "Premium aerospace carbon fiber car seat gap filler with built-in dual USB-C and Lightning fast-charging cables. Universal fit for 99% of vehicles. Nappa leather finish with memory foam base.",
+        "brand": { "@type": "Brand", "name": "SOLVO" },
+        "offers": {
+            "@type": "AggregateOffer",
+            "lowPrice": "24.00",
+            "highPrice": "39.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "offerCount": "2",
+            "seller": { "@type": "Organization", "name": "SOLVO Inc." }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "1247"
+        }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Facebook Pixel (Replace YOUR_PIXEL_ID) -->
+    <!-- <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','YOUR_PIXEL_ID');fbq('track','PageView');fbq('track','ViewContent',{content_name:'SOLVO SeatGap Organizer',content_type:'product',value:24.00,currency:'USD'});</script> -->
 </head>
 <body>
 
@@ -21,14 +70,27 @@
     <!-- Header Navigation -->
     <header class="solvo-header">
         <div class="store-container header-inner">
-            <a href="#" class="brand-logo">
+            <a href="index.html" class="brand-logo">
                 <span class="logo-text">SOLVO</span>
                 <span class="logo-badge">PRO</span>
             </a>
-            <div class="header-tagline">PRECISION. PRESENCE. SOLVO.</div>
+            <nav class="header-nav">
+                <a href="index.html">Home</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+            </nav>
             <div class="header-actions">
                 <a href="#order-section" class="btn-header-buy">ORDER NOW</a>
             </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+            <a href="#order-section" class="btn-header-buy" onclick="toggleMobileMenu()">ORDER NOW</a>
         </div>
     </header>
 
@@ -60,7 +122,31 @@
 
                 <div class="hero-media">
                     <div class="product-badge-overlay">BESTSELLER</div>
-                    <img src="assets/img/trunk_organizer.jpg" alt="SOLVO SeatGap Organizer" class="hero-img-main">
+                    <img src="assets/img/seatgap_hero.jpg" alt="SOLVO SeatGap Organizer - Premium carbon fiber car seat gap filler with USB-C charging installed in luxury car interior" class="hero-img-main">
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof Bar -->
+        <section class="social-proof-bar">
+            <div class="store-container">
+                <div class="proof-items">
+                    <div class="proof-item">
+                        <i class="fa-solid fa-star"></i>
+                        <span><strong>4.8/5</strong> — 1,247 Reviews</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span><strong>Free Shipping</strong> on 2-Pack</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span><strong>30-Day</strong> Money Back</span>
+                    </div>
+                    <div class="proof-item">
+                        <i class="fa-solid fa-car"></i>
+                        <span><strong>99%</strong> Vehicle Fit</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -84,12 +170,17 @@
                             <option value="land-rover">Land Rover</option>
                             <option value="toyota">Toyota</option>
                             <option value="ford">Ford</option>
+                            <option value="honda">Honda</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="hyundai">Hyundai</option>
+                            <option value="kia">Kia</option>
                         </select>
                         <select id="fitment-model">
                             <option value="">[SELECT MODEL]</option>
                         </select>
                         <select id="fitment-year">
                             <option value="">[YEAR]</option>
+                            <option value="2026">2026</option>
                             <option value="2025">2025</option>
                             <option value="2024">2024</option>
                             <option value="2023">2023</option>
@@ -117,11 +208,11 @@
 
                 <div class="ba-container">
                     <div class="ba-stage" id="ba-stage">
-                        <img src="assets/img/solvo_before_after.jpg" alt="Before SOLVO" class="ba-img ba-img--before">
+                        <img src="assets/img/seatgap_before.jpg" alt="Before SOLVO — messy car seat gap with items falling through" class="ba-img ba-img--before">
                         <div class="ba-badge ba-badge--before">BEFORE: CHAOTIC GAP</div>
                         
                         <div class="ba-after-wrap" id="ba-after-wrap">
-                            <img src="assets/img/solvo_before_after.jpg" alt="After SOLVO" class="ba-img ba-img--after">
+                            <img src="assets/img/seatgap_after.jpg" alt="After SOLVO — clean organized seat gap with organizer installed" class="ba-img ba-img--after">
                         </div>
                         <div class="ba-badge ba-badge--after">AFTER: SOLVO PRECISION</div>
 
@@ -133,9 +224,43 @@
             </div>
         </section>
 
+        <!-- How It Works -->
+        <section class="section-how-it-works">
+            <div class="store-container">
+                <div class="section-heading">
+                    <span class="sub-title">SIMPLE SETUP</span>
+                    <h2 class="main-title">INSTALLED IN 10 SECONDS. NO TOOLS.</h2>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                        <h3>Adjust the Width</h3>
+                        <p>The built-in memory foam base compresses to perfectly fill any seat gap from 0.6" to 2.4" wide.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon"><i class="fa-solid fa-hand-pointer"></i></div>
+                        <h3>Slide & Press</h3>
+                        <p>Simply slide SOLVO into the gap between your seat and console. The non-slip base locks it in place — no adhesive needed.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                        <h3>Plug & Charge</h3>
+                        <p>Connect the USB-C power cable to your car's USB port. Retractable charging cables are ready for your phone instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Key Features Grid -->
         <section class="section-features">
             <div class="store-container">
+                <div class="section-heading">
+                    <span class="sub-title">ENGINEERED FOR LUXURY</span>
+                    <h2 class="main-title">EVERY DETAIL MATTERS</h2>
+                </div>
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
@@ -151,6 +276,64 @@
                         <div class="feature-icon"><i class="fa-solid fa-ban"></i></div>
                         <h3>Zero Squeak & Non-Slip</h3>
                         <p>High-density memory foam base firmly wedges into the gap and stays dead quiet over bumps.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-temperature-low"></i></div>
+                        <h3>Heat & Cold Resistant</h3>
+                        <p>Rated from -22°F to 176°F. Works flawlessly in Arizona summers and Canadian winters.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-car-side"></i></div>
+                        <h3>Universal 99% Fit</h3>
+                        <p>Certified compatible with BMW, Mercedes, Tesla, Toyota, Ford, and 50+ other makes. Adjustable width design.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fa-solid fa-droplet-slash"></i></div>
+                        <h3>Spill-Proof & Washable</h3>
+                        <p>Sealed edges prevent crumbs and liquid from reaching the gap. Wipe clean in seconds with any interior cleaner.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews -->
+        <section class="section-reviews">
+            <div class="store-container">
+                <div class="section-heading">
+                    <span class="sub-title">VERIFIED CUSTOMERS</span>
+                    <h2 class="main-title">WHAT DRIVERS ARE SAYING</h2>
+                    <div class="review-summary">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <span>4.8 out of 5 — Based on 1,247 reviews</span>
+                    </div>
+                </div>
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <h4>"Finally, no more fishing under the seat!"</h4>
+                        <p>I've tried 3 different gap fillers before. This is the only one that doesn't look cheap and actually stays in place. The USB-C charging is a game-changer — my car didn't have enough USB ports before.</p>
+                        <div class="review-author">
+                            <strong>Mark D.</strong> <span class="review-badge"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                            <div class="review-vehicle">BMW M4 2024</div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <h4>"Matches my Tesla interior perfectly"</h4>
+                        <p>The carbon fiber texture looks OEM — like it came with the car. Installed in literally 5 seconds. My wife wants one for the passenger side now. Ordering the 2-pack was the smarter move.</p>
+                        <div class="review-author">
+                            <strong>Sarah K.</strong> <span class="review-badge"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                            <div class="review-vehicle">Tesla Model 3 2025</div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <h4>"Premium quality for the price"</h4>
+                        <p>Was skeptical at first, but the build quality surprised me. The leather feels premium, not plasticky. Zero squeaking after 3 months of daily driving. Only wish it came in brown leather too.</p>
+                        <div class="review-author">
+                            <strong>James T.</strong> <span class="review-badge"><i class="fa-solid fa-circle-check"></i> Verified Buyer</span>
+                            <div class="review-vehicle">Range Rover Sport 2023</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,7 +397,9 @@
                                     <option value="CA">Canada</option>
                                     <option value="UK">United Kingdom</option>
                                     <option value="AU">Australia</option>
-                                    <option value="EU">European Union</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="FR">France</option>
+                                    <option value="EU">Other EU Country</option>
                                 </select>
                             </div>
 
@@ -242,6 +427,22 @@
                 </div>
             </div>
         </section>
+
+        <!-- Email Capture -->
+        <section class="section-email-capture">
+            <div class="store-container">
+                <div class="email-capture-box">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h3>GET 10% OFF YOUR FIRST ORDER</h3>
+                    <p>Subscribe for exclusive deals, new product launches, and car interior tips.</p>
+                    <form class="email-form" onsubmit="handleEmailCapture(event)">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                    <span class="email-note">No spam. Unsubscribe anytime. We respect your privacy.</span>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -251,17 +452,47 @@
                 <span class="footer-logo">SOLVO</span>
                 <p>Precision. Presence. SOLVO. Premium automotive accessories engineered for modern journeys.</p>
             </div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Shipping Terms</a>
-                <a href="#">30-Day Returns</a>
-                <a href="#">Contact Support</a>
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>SHOP</h4>
+                    <a href="index.html">SeatGap Organizer™</a>
+                    <a href="#order-section">Bundle Deals</a>
+                </div>
+                <div class="footer-col">
+                    <h4>SUPPORT</h4>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="shipping.html">Track My Order</a>
+                </div>
+                <div class="footer-col">
+                    <h4>POLICIES</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                    <a href="shipping.html">Shipping Policy</a>
+                    <a href="returns.html">Returns & Refunds</a>
+                </div>
             </div>
-            <div class="footer-copy">
-                &copy; 2026 SOLVO Inc. All rights reserved.
+            <div class="footer-bottom">
+                <div class="footer-copy">&copy; 2026 SOLVO Inc. All rights reserved.</div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-mobile-cta" id="sticky-cta">
+        <div class="sticky-cta-inner">
+            <div class="sticky-cta-info">
+                <span class="sticky-price">$24.00</span>
+                <span class="sticky-save">46% OFF</span>
+            </div>
+            <a href="#order-section" class="sticky-cta-btn">ORDER NOW <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
