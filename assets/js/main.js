@@ -453,13 +453,18 @@ function closeProductModal() {
 function handleModalBuy() {
     if (!currentModalProductId) return;
     const p = productsData[currentModalProductId];
-    if (p.id === 'seatgap') {
+    if (window.solvoCart) {
         closeProductModal();
-        const el = document.getElementById('solvo-flagship');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        window.solvoCart.addItem(p.id, 1);
     } else {
-        alert('🎉 ORDER ADDED!\n\nProduct: ' + p.name + '\nPrice: $' + p.price.toFixed(2) + ' USD\n\nFast Express Shipping & 30-Day Money Back Guarantee included.');
-        closeProductModal();
+        if (p.id === 'seatgap') {
+            closeProductModal();
+            const el = document.getElementById('solvo-flagship');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            closeProductModal();
+            window.location.href = `product.html?id=${p.id}`;
+        }
     }
 }
 

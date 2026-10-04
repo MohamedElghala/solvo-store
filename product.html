@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,6 +65,10 @@
                 <a href="contact.html">Support</a>
             </nav>
             <div class="header-actions">
+                <button type="button" class="action-icon" title="View Cart" onclick="if(window.solvoCart) solvoCart.open();" style="background:none;border:none;padding:0;color:#94A3B8;cursor:pointer;font-size:1.1rem;position:relative;">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" style="position:absolute;top:-6px;right:-8px;background:#DC2626;color:#fff;font-size:0.6rem;font-weight:800;padding:1px 5px;border-radius:10px;display:none;">0</span>
+                </button>
                 <a href="#pdp-buy-btn" class="btn-header-buy">ORDER NOW</a>
                 <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
             </div>
@@ -162,6 +166,9 @@
                     <button class="pdp-btn-add" onclick="handleAddToCart()">
                         <i class="fa-solid fa-bag-shopping"></i> ADD TO CART
                     </button>
+                    <a href="index.html#solvo-hotspots" class="solvo-btn-metallic" style="padding:0.85rem 1.25rem;font-size:0.8rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;border-radius:6px;" title="Test on 3D Car Model">
+                        <i class="fa-solid fa-cube" style="color:#DC2626;"></i> TRY ON 3D CAR
+                    </a>
                 </div>
 
                 <!-- Primary Express Checkout Button -->
@@ -189,8 +196,56 @@
                     </div>
                 </div>
 
+        <!-- ═══════════════════════════════════════════════════════════════
+             SUPERDESIGN BENTO GRID: AUTOMOTIVE ENGINEERING ARCHITECTURE
+        ════════════════════════════════════════════════════════════════ -->
+        <section class="solvo-bento-section" style="margin: 4.5rem 0 3rem;">
+            <div style="text-align:center;margin-bottom:2.5rem;">
+                <span style="color:#DC2626;font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:2px;font-weight:700;text-transform:uppercase;">PRECISION ARCHITECTURE</span>
+                <h2 style="font-size:2rem;font-weight:800;color:#fff;margin:0.4rem 0;">Engineered For Performance Cockpits</h2>
+                <p style="color:#94A3B8;max-width:620px;margin:0 auto;font-size:0.92rem;">Every SOLVO accessory undergoes laser scanning, thermal load testing, and high-G vibration qualification.</p>
             </div>
-        </div>
+
+            <div class="solvo-bento-grid">
+                <!-- Bento Card 1: Wide -->
+                <div class="solvo-bento-card solvo-bento-card--wide">
+                    <i class="fa-solid fa-layer-group solvo-bento-icon"></i>
+                    <h3 class="solvo-bento-title">Aerospace Carbon & Alloy Composition</h3>
+                    <p class="solvo-bento-desc">Constructed using dry forged carbon weave and CNC anodized aluminum frames. Designed to withstand cockpit cabin temperatures from -30°C to +85°C without warping, discoloring, or odor emission.</p>
+                    <span class="solvo-bento-stat">100% <span>AEROSPACE GRADE</span></span>
+                </div>
+
+                <!-- Bento Card 2 -->
+                <div class="solvo-bento-card">
+                    <i class="fa-solid fa-bullseye solvo-bento-icon"></i>
+                    <h3 class="solvo-bento-title">99% Laser-Fit Vehicle Matrix</h3>
+                    <p class="solvo-bento-desc">Tested across 3,500+ car chassis including Tesla, BMW, Mercedes-Benz, Porsche, Audi, and Ford. Non-slip stabilizers lock firmly into place.</p>
+                    <span class="solvo-bento-stat">3,500+ <span>MODELS TESTED</span></span>
+                </div>
+
+                <!-- Bento Card 3 -->
+                <div class="solvo-bento-card">
+                    <i class="fa-solid fa-microchip solvo-bento-icon"></i>
+                    <h3 class="solvo-bento-title">Intelligent Power & Safety Circuitry</h3>
+                    <p class="solvo-bento-desc">Equipped with active thermal monitoring, overvoltage protection, and high-frequency noise suppression to protect sensitive vehicle electronics.</p>
+                    <span class="solvo-bento-stat">0.02s <span>SURGE CUTOFF</span></span>
+                </div>
+
+                <!-- Bento Card 4: Wide -->
+                <div class="solvo-bento-card solvo-bento-card--wide" style="display:flex;flex-direction:column;justify-content:space-between;">
+                    <div>
+                        <i class="fa-solid fa-cube solvo-bento-icon"></i>
+                        <h3 class="solvo-bento-title">Virtual 3D Fitment Simulator</h3>
+                        <p class="solvo-bento-desc">Curious how SOLVO accessories complement your vehicle's interior? Rotate our real-time 3D WebGL simulator to preview angles, telemetry nodes, and lighting.</p>
+                    </div>
+                    <div style="margin-top:1.5rem;">
+                        <a href="index.html#solvo-hotspots" class="solvo-btn-metallic" style="padding:0.75rem 1.5rem;font-size:0.82rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.6rem;border-radius:6px;">
+                            <i class="fa-solid fa-cube" style="color:#DC2626;"></i> LAUNCH 3D VEHICLE SIMULATOR &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Full-Width In-Depth Information Tabs -->
         <div class="pdp-tabs-container">
@@ -343,6 +398,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/product-data.js"></script>
+    <script src="assets/js/solvo-cart.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
         let currentProduct = null;
@@ -484,21 +540,17 @@
 
         function handleAddToCart() {
             if (!currentProduct) return;
-            const total = (currentProduct.price * selectedQty).toFixed(2);
-            alert(`🎉 ADDED TO CART!\n\nProduct: ${currentProduct.name}\nQuantity: ${selectedQty}\nTotal: $${total} USD\n\nFast Worldwide Express Shipping ($35+) & 30-Day Money Back Guarantee included.`);
+            if (window.solvoCart) {
+                window.solvoCart.addItem(currentProduct.id, selectedQty);
+            }
         }
 
         function handlePdpOrder() {
             if (!currentProduct) return;
-            const btn = document.getElementById('pdp-buy-btn');
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Connecting to Secure Gateway...';
-            btn.style.opacity = '0.85';
-            setTimeout(() => {
-                const total = (currentProduct.price * selectedQty).toFixed(2);
-                alert(`🎉 ORDER INITIATION SUCCESSFUL!\n\nPackage: ${currentProduct.name} (x${selectedQty})\nTotal: $${total} USD\n\n(When your PayPal / Stripe Gateway is connected, the secure payment popup completes checkout here!)`);
-                btn.innerHTML = '<i class="fa-brands fa-paypal"></i> EXPRESS CHECKOUT WITH PAYPAL / CARD';
-                btn.style.opacity = '1';
-            }, 1200);
+            if (window.solvoCart) {
+                window.solvoCart.addItem(currentProduct.id, selectedQty);
+                window.solvoCart.checkout();
+            }
         }
 
         document.addEventListener('DOMContentLoaded', initPDP);
