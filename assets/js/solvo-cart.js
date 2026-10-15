@@ -256,6 +256,20 @@
 
             saveCart();
             this.open();
+
+            // Fire Google Analytics 4 Add To Cart Event
+            if (typeof gtag === 'function') {
+                gtag('event', 'add_to_cart', {
+                    currency: 'USD',
+                    value: (Number(prod.price) || 24.00) * qty,
+                    items: [{
+                        item_id: prod.id,
+                        item_name: prod.name,
+                        price: Number(prod.price) || 24.00,
+                        quantity: qty
+                    }]
+                });
+            }
         },
         updateQty: function (index, delta) {
             if (!cart.items[index]) return;
@@ -275,6 +289,20 @@
             const subtotal = getSubtotal().toFixed(2);
             const summary = cart.items.map(it => `${it.qty}x ${it.name}`).join(', ');
             
+            // Fire Google Analytics 4 Begin Checkout Event
+            if (typeof gtag === 'function') {
+                gtag('event', 'begin_checkout', {
+                    currency: 'USD',
+                    value: Number(subtotal),
+                    items: cart.items.map(it => ({
+                        item_id: it.id,
+                        item_name: it.name,
+                        price: it.price,
+                        quantity: it.qty
+                    }))
+                });
+            }
+
             // Visual feedback
             const btn = document.querySelector('.solvo-cart-checkout-btn');
             if (btn) {

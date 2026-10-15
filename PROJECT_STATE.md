@@ -1,6 +1,7 @@
 # SOLVO Storefront — Project State & Architectural Blueprint
-**Last Updated:** October 5, 2026  
+**Last Updated:** October 16, 2026  
 **Live URL:** [https://solvo-store.vercel.app/](https://solvo-store.vercel.app/)  
+**Custom Domain:** [https://solvo.store/](https://solvo.store/)  
 **GitHub Repository:** [https://github.com/MohamedElghala/solvo-store.git](https://github.com/MohamedElghala/solvo-store.git)  
 **Branch:** `main`
 
@@ -12,6 +13,7 @@
 - **Design Philosophy:** SuperDesign Luxury Performance Aesthetic — combining dark obsidian stealth chassis, brushed chrome metallic sheens, racing red accents, and responsive WebGL 3D immersion.
 - **Tech Stack:** Vanilla HTML5, CSS3, JavaScript ES6+, Three.js WebGL (r128), OrbitControls, FontAwesome 6, Google Fonts (Montserrat & JetBrains Mono).
 - **Hosting & Deployment:** Static production deployment powered by Vercel with automatic continuous integration from GitHub `main`.
+- **Ecosystem Connection:** Integrated into the overarching digital enterprise ecosystem managed via `d:\كاتب الاوامر` alongside OmniRoute, Claude Code, and Raseen Platform.
 
 ---
 
@@ -28,14 +30,15 @@
   5. **Dynamic Floating HUD Card:** Real-time specifications, pricing, benefit details, and instant "Add to Vehicle" action.
   6. **Fullscreen Immersion Mode:** Expand the 3D studio to full viewport for an uncompromising luxury showroom experience.
 
-### B. SuperDesign Slide-Out Luxury Side Cart Drawer
+### B. SuperDesign Slide-Out Luxury Side Cart Drawer & Enhanced E-commerce
 - **File:** `assets/js/solvo-cart.js`
 - **Features:**
   1. **Zero Browser Alerts:** Replaced all legacy `alert()` dialogs with seamless in-app slide-out drawer interactions.
   2. **Dynamic Free Shipping Progress Bar:** Live calculation against the \$35.00 threshold with animated progress bar and unlock badge.
   3. **Cart Persistence:** Managed via `localStorage` (`solvo_cart_v2`) preserving cart items, quantities, and totals across page refreshes.
   4. **Live Header Badge Sync:** Automatically synchronizes badge counts across desktop and mobile header navigation bars.
-  5. **Instant Checkout Flow:** Express checkout transition directing directly to confirmation receipt (`thank-you.html`) with unique order reference tokens.
+  5. **Instant Checkout Flow:** Seamless checkout transition directing directly to confirmation receipt (`thank-you.html`) with unique order reference tokens.
+  6. **Google Analytics 4 Enhanced E-commerce:** Automatically pushes `add_to_cart` and `begin_checkout` events with full item arrays, values, and currencies into `window.dataLayer`.
 
 ### C. SuperDesign Bento Grid Engineering Architecture
 - **Files:** `assets/css/style.css`, `product.html`
@@ -45,8 +48,24 @@
   3. Intelligent surge protection & heat dissipation telemetry.
   4. Interactive callout linking PDP directly back into the 3D Vehicle Simulator.
 
-### D. Metallic Sheen CTA Buttons
-- **Style:** `.solvo-btn-metallic` with `@keyframes sheen-sweep` providing an authentic automotive titanium sheen animation across hover states.
+### D. Google Search Console & Google Analytics 4 (GA4) Integration
+- **Google Search Console Verification:** `<meta name="google-site-verification" content="googlec660322f2991dfce">` integrated into `index.html` and `product.html`.
+- **Google Analytics 4 Measurement ID:** `G-WWN1MNE93T` configured across all store pages (`index.html`, `product.html`, `thank-you.html`).
+- **Conversion Tracking Events:**
+  - `view_item`: Triggered on product page load with product metadata, pricing, and category.
+  - `add_to_cart`: Triggered when item is added via quick-view modal, product page, or 3D HUD card.
+  - `begin_checkout`: Triggered when customer clicks express checkout.
+  - `purchase`: Triggered on `thank-you.html` with dynamic transaction ID and order total.
+- **Sitemap & Robots:** `sitemap.xml` updated with current timestamps (`2026-10-16`) and dual-domain coverage (`solvo-store.vercel.app` & `solvo.store`). `robots.txt` points directly to the sitemap.
+
+### E. Autonomous Marketing & Advertising System
+- **Engine Script:** `scripts/solvo_marketing_engine.js`
+- **Dispatch Output:** `SOLVO_MARKETING_DISPATCH.md` and `assets/data/marketing_campaigns.json`
+- **Deliverables:**
+  1. **60-Second Viral Video Scripts:** Structured with 0-5s Hook, 5-20s Problem, 20-45s Solution, and 45-60s Call To Action for TikTok, Instagram Reels, and YouTube Shorts.
+  2. **Google Veo 3 / Google Flow / Kling AI Prompts:** Photorealistic, 9:16 vertical cinematic prompts with camera movement, lens, and lighting directions.
+  3. **Paid Ad Copy:** High-converting copy for Meta Ads (Facebook & Instagram) and TikTok Ads.
+  4. **Monetization & Customer Acquisition Funnel:** Detailed blueprint for customer acquisition, bundle upsells, and trust-driven checkout.
 
 ---
 
@@ -66,21 +85,21 @@ All 10 products are fully configured in `assets/js/product-data.js` and `assets/
 ---
 
 ## 4. Key File Inventory
-- `index.html`: Flagship landing page with announcement bar, hero section, 3D WebGL simulator, featured collections, customer reviews, and quick-view modal.
-- `product.html`: High-converting product detail page (PDP) with multi-image gallery, Bento engineering grid, interactive technical specs tabs, verified buyer reviews, and 3D car try-on button.
+- `index.html`: Flagship landing page with announcement bar, hero section, 3D WebGL simulator, featured collections, customer reviews, quick-view modal, GSC verification, and GA4 tag.
+- `product.html`: High-converting product detail page (PDP) with multi-image gallery, Bento engineering grid, interactive technical specs tabs, verified buyer reviews, 3D car try-on button, and GA4 `view_item` event.
+- `thank-you.html`: Confirmation receipt page with GA4 `purchase` conversion event and order reference token.
 - `assets/js/solvo-3d-simulator.js`: Three.js WebGL automotive simulation engine.
-- `assets/js/solvo-cart.js`: E-commerce side cart drawer engine.
+- `assets/js/solvo-cart.js`: E-commerce side cart drawer engine with Enhanced E-commerce dataLayer integration.
 - `assets/js/product-data.js`: Master product database with specifications and high-resolution assets.
 - `assets/js/main.js`: General interactions, before/after slider, and quick-view modals.
 - `assets/css/style.css`: Primary styling, Bento grid, cart drawer, and 3D stage CSS.
-- `thank-you.html`, `faq.html`, `contact.html`, `privacy.html`, `terms.html`, `shipping.html`, `returns.html`: Production policy and utility pages.
+- `scripts/solvo_marketing_engine.js`: Autonomous marketing and advertising engine.
+- `SOLVO_MARKETING_DISPATCH.md`: Live campaign scripts, Veo prompts, and ad copies.
+- `sitemap.xml`, `robots.txt`: Search engine indexing and verification configurations.
+- `faq.html`, `contact.html`, `privacy.html`, `terms.html`, `shipping.html`, `returns.html`: Production policy and utility pages.
 
 ---
 
-## 5. Deployment & Roadmap
-- **Deployment Status:** Clean git workspace, verified with `node -c` (0 syntax errors).
-- **Next Operational Steps:**
-  1. Commit and push updates to `origin main` to trigger automatic Vercel deployment.
-  2. Verify live production URL (`https://solvo-store.vercel.app/`).
-  3. Connect live payment processor webhooks (PayPal / Stripe API keys).
-  4. Launch automated TikTok / YouTube video content workflows using Google Veo / Flow prompts.
+## 5. Deployment & Verification
+- **Build Status:** Clean git workspace, verified with `node -c` (0 syntax errors).
+- **Deployment Status:** Live on Vercel (`HTTP 200 OK`) and GitHub `main`.

@@ -8,6 +8,18 @@
     <link rel="canonical" href="https://solvo.store/product.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="googlec660322f2991dfce">
+
+    <!-- Google tag (gtag.js) - Google Analytics 4 & Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWN1MNE93T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WWN1MNE93T', { 'send_page_view': true });
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="SOLVO">
@@ -408,6 +420,20 @@
             const urlParams = new URLSearchParams(window.location.search);
             const prodId = urlParams.get('id') || 'seatgap';
             currentProduct = solvoProductsMaster[prodId] || solvoProductsMaster['seatgap'];
+
+            // Google Analytics 4 Ecommerce View Item Event
+            if (typeof gtag === 'function' && currentProduct) {
+                gtag('event', 'view_item', {
+                    currency: 'USD',
+                    value: currentProduct.price,
+                    items: [{
+                        item_id: currentProduct.id,
+                        item_name: currentProduct.name,
+                        item_category: currentProduct.category,
+                        price: currentProduct.price
+                    }]
+                });
+            }
 
             // Title & Meta
             document.title = currentProduct.name + ' — SOLVO';

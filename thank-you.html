@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Google tag (gtag.js) - Google Analytics 4 & Conversion Tracking -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWN1MNE93T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WWN1MNE93T', { 'send_page_view': true });
+    </script>
+
     <!-- Meta / TikTok Purchase Pixel Event Placeholder -->
     <!--
     <script>
@@ -94,10 +103,21 @@
     </footer>
     <script src="assets/js/main.js"></script>
     <script>
-        // Generate random order ID if not passed in URL
-        const randId = Math.floor(10000 + Math.random() * 90000);
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderParam = urlParams.get('order') || ('SLV-' + Math.floor(10000 + Math.random() * 90000));
+        const totalParam = parseFloat(urlParams.get('total')) || 24.00;
         const refElem = document.getElementById('order-ref');
-        if (refElem) refElem.textContent = '#SLV-' + randId;
+        if (refElem) refElem.textContent = '#' + orderParam;
+
+        // Fire Google Analytics 4 Purchase Conversion Event
+        if (typeof gtag === 'function') {
+            gtag('event', 'purchase', {
+                transaction_id: orderParam,
+                value: totalParam,
+                currency: 'USD',
+                shipping: totalParam >= 35 ? 0 : 4.95
+            });
+        }
     </script>
 </body>
 </html>
